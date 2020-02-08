@@ -15,17 +15,38 @@ class LoginFormController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBAction func singInButton(_ sender: Any) {
-        if let login = loginTextField.text,
-            let password = passwordTextField.text{
-            print("Login: \(login), Password: \(password)")
-            
-            if login == "admin", password == "admin"{
-                print("All ok")
-            } else {
-                print("Not ok")
-            }
+
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        let checkResult = checkUserData()
+        
+        if checkResult == false{
+            showLoginError()
+        }
+        
+        return checkResult
+    }
+    
+    func checkUserData() -> Bool {
+        guard let login = loginTextField.text,
+            let password = passwordTextField.text else { return false }
+        
+        if login == "admin" && password == "admin" {
+            return true
+        } else {
+            return false
         }
     }
+    
+    func showLoginError() {
+        let alter = UIAlertController(title: "Ошибка", message: "Введен не верный логин или пароль", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alter.addAction(action)
+        present(alter, animated: true, completion: nil)
+    }
+
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
