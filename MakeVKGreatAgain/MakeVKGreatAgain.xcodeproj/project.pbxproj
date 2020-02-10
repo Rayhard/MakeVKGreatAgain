@@ -7,7 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DFA5E7D923F065C70032D2BF /* UserGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA5E7D823F065C70032D2BF /* UserGroupController.swift */; };
+		DFA5E7DB23F066010032D2BF /* SearchGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA5E7DA23F066010032D2BF /* SearchGroupController.swift */; };
+		DFA5E7DD23F0663A0032D2BF /* FriendsImagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA5E7DC23F0663A0032D2BF /* FriendsImagesController.swift */; };
+		DFA5E7E323F069F60032D2BF /* UserGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA5E7E223F069F60032D2BF /* UserGroupCell.swift */; };
+		DFA5E7E523F06A100032D2BF /* SearchGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA5E7E423F06A100032D2BF /* SearchGroupCell.swift */; };
 		DFA64E1023EE878A00304BAD /* LoginFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA64E0F23EE878A00304BAD /* LoginFormController.swift */; };
+		DFAC200123F1429B00A1891A /* FriendImagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAC200023F1429B00A1891A /* FriendImagesCell.swift */; };
+		DFAD080E23F0164A0057964B /* FriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD080D23F0164A0057964B /* FriendsController.swift */; };
+		DFAD081123F016B00057964B /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD081023F016B00057964B /* FriendCell.swift */; };
+		DFAD081423F017630057964B /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD081323F017630057964B /* DataModel.swift */; };
 		DFB4D22C23EDA61D0025359F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB4D22B23EDA61D0025359F /* AppDelegate.swift */; };
 		DFB4D22E23EDA61D0025359F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB4D22D23EDA61D0025359F /* SceneDelegate.swift */; };
 		DFB4D23323EDA61D0025359F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFB4D23123EDA61D0025359F /* Main.storyboard */; };
@@ -16,7 +25,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DFA5E7D823F065C70032D2BF /* UserGroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupController.swift; sourceTree = "<group>"; };
+		DFA5E7DA23F066010032D2BF /* SearchGroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGroupController.swift; sourceTree = "<group>"; };
+		DFA5E7DC23F0663A0032D2BF /* FriendsImagesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsImagesController.swift; sourceTree = "<group>"; };
+		DFA5E7E223F069F60032D2BF /* UserGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupCell.swift; sourceTree = "<group>"; };
+		DFA5E7E423F06A100032D2BF /* SearchGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGroupCell.swift; sourceTree = "<group>"; };
 		DFA64E0F23EE878A00304BAD /* LoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormController.swift; sourceTree = "<group>"; };
+		DFAC200023F1429B00A1891A /* FriendImagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendImagesCell.swift; sourceTree = "<group>"; };
+		DFAD080D23F0164A0057964B /* FriendsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsController.swift; sourceTree = "<group>"; };
+		DFAD081023F016B00057964B /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
+		DFAD081323F017630057964B /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		DFB4D22823EDA61D0025359F /* MakeVKGreatAgain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MakeVKGreatAgain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB4D22B23EDA61D0025359F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFB4D22D23EDA61D0025359F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +55,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DFAD080A23F0125A0057964B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DFA64E0F23EE878A00304BAD /* LoginFormController.swift */,
+				DFAD080D23F0164A0057964B /* FriendsController.swift */,
+				DFA5E7DC23F0663A0032D2BF /* FriendsImagesController.swift */,
+				DFA5E7D823F065C70032D2BF /* UserGroupController.swift */,
+				DFA5E7DA23F066010032D2BF /* SearchGroupController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DFAD080B23F0127A0057964B /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				DFB4D23123EDA61D0025359F /* Main.storyboard */,
+				DFB4D23423EDA61F0025359F /* Assets.xcassets */,
+				DFB4D23623EDA61F0025359F /* LaunchScreen.storyboard */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		DFAD080C23F015D70057964B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DFAD081023F016B00057964B /* FriendCell.swift */,
+				DFAC200023F1429B00A1891A /* FriendImagesCell.swift */,
+				DFA5E7E223F069F60032D2BF /* UserGroupCell.swift */,
+				DFA5E7E423F06A100032D2BF /* SearchGroupCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		DFAD081223F017460057964B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DFAD081323F017630057964B /* DataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		DFB4D21F23EDA61D0025359F = {
 			isa = PBXGroup;
 			children = (
@@ -58,10 +117,10 @@
 			children = (
 				DFB4D22B23EDA61D0025359F /* AppDelegate.swift */,
 				DFB4D22D23EDA61D0025359F /* SceneDelegate.swift */,
-				DFA64E0F23EE878A00304BAD /* LoginFormController.swift */,
-				DFB4D23123EDA61D0025359F /* Main.storyboard */,
-				DFB4D23423EDA61F0025359F /* Assets.xcassets */,
-				DFB4D23623EDA61F0025359F /* LaunchScreen.storyboard */,
+				DFAD081223F017460057964B /* Model */,
+				DFAD080A23F0125A0057964B /* Controller */,
+				DFAD080C23F015D70057964B /* Cell */,
+				DFAD080B23F0127A0057964B /* Assets */,
 				DFB4D23923EDA61F0025359F /* Info.plist */,
 			);
 			path = MakeVKGreatAgain;
@@ -139,8 +198,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFA64E1023EE878A00304BAD /* LoginFormController.swift in Sources */,
+				DFAD080E23F0164A0057964B /* FriendsController.swift in Sources */,
+				DFA5E7DD23F0663A0032D2BF /* FriendsImagesController.swift in Sources */,
 				DFB4D22C23EDA61D0025359F /* AppDelegate.swift in Sources */,
+				DFA5E7D923F065C70032D2BF /* UserGroupController.swift in Sources */,
 				DFB4D22E23EDA61D0025359F /* SceneDelegate.swift in Sources */,
+				DFA5E7DB23F066010032D2BF /* SearchGroupController.swift in Sources */,
+				DFA5E7E323F069F60032D2BF /* UserGroupCell.swift in Sources */,
+				DFAD081123F016B00057964B /* FriendCell.swift in Sources */,
+				DFA5E7E523F06A100032D2BF /* SearchGroupCell.swift in Sources */,
+				DFAD081423F017630057964B /* DataModel.swift in Sources */,
+				DFAC200123F1429B00A1891A /* FriendImagesCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
