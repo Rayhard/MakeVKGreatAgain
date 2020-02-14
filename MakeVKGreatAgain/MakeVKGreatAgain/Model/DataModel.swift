@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 struct User {
     let name: String
     let photo: UIImage?
