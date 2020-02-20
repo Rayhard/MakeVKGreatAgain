@@ -9,10 +9,10 @@
 import UIKit
 
 class LikeButton: UIButton {
-    var isLikebl: Bool = false
-    var likeCount: Int = 0
-    let imageLiked: UIImage = UIImage(systemName: "heart.fill")!
-    let imageNotLiked: UIImage = UIImage(systemName: "heart")!
+    private var isLikebl: Bool = false
+    private var likeCount: Int = 0
+    private let imageLiked: UIImage = UIImage(systemName: "heart.fill")!
+    private let imageNotLiked: UIImage = UIImage(systemName: "heart")!
     
     func likedAction(){
         if isLikebl {

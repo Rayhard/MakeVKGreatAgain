@@ -10,44 +10,6 @@ import UIKit
 
 class FriendsController: UITableViewController {
     
-    let friendsArray: [User] = [User(name: "Nikita",
-                                     photo: UIImage(named: "Nikita"),
-                                     images: [UIImage(named: "Nikita")!]),
-                                User(name: "Petya",
-                                     photo: UIImage(named: "Petya"),
-                                     images: [UIImage(named: "Petya")!]),
-                                User(name: "Olga",
-                                     photo: UIImage(named: "Olga"),
-                                     images: [UIImage(named: "Olga")!]),
-                                User(name: "Nikita1",
-                                     photo: UIImage(named: "Nikita"),
-                                     images: [UIImage(named: "Nikita")!]),
-                                User(name: "Petya1",
-                                     photo: UIImage(named: "Petya"),
-                                     images: [UIImage(named: "Petya")!]),
-                                User(name: "Olga1",
-                                     photo: UIImage(named: "Olga"),
-                                     images: [UIImage(named: "Olga")!]),
-                                User(name: "Nikita2",
-                                     photo: UIImage(named: "Nikita"),
-                                     images: [UIImage(named: "Nikita")!]),
-                                User(name: "Petya2",
-                                     photo: UIImage(named: "Petya"),
-                                     images: [UIImage(named: "Petya")!]),
-                                User(name: "Olga2",
-                                     photo: UIImage(named: "Olga"),
-                                     images: [UIImage(named: "Olga")!]),
-                                User(name: "Nikita3",
-                                     photo: UIImage(named: "Nikita"),
-                                     images: [UIImage(named: "Nikita")!]),
-                                User(name: "Petya3",
-                                     photo: UIImage(named: "Petya"),
-                                     images: [UIImage(named: "Petya")!]),
-                                User(name: "Olga3",
-                                     photo: UIImage(named: "Olga"),
-                                     images: [UIImage(named: "Olga")!]),
-    ]
-    
     var names: [User]{
         return friendsArray.sorted(by: {$0.name < $1.name})
     }
