@@ -43,42 +43,19 @@ class FriendsController: UITableViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        if isSearchActive{
-            return 1
-        } else {
-            return sections.count
-        }
+        return isSearchActive ? 1 : sections.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isSearchActive{
-            return displayData.count
-        } else {
-            return sections[section].count
-        }
+        return isSearchActive ? displayData.count : sections[section].count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if isSearchActive{
-            return ""
-        } else {
-            return sections[section].first?.name.first?.uppercased()
-        }
+        return isSearchActive ? "" : sections[section].first?.name.first?.uppercased()
     }
     
-//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let headerView = UIView()
-//        headerView.backgroundColor = .blue
-//        headerView.alpha = 0.5
-//        return headerView
-//    }
-    
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        if isSearchActive {
-            return []
-        } else {
-            return Array(Set(names.compactMap{$0.name.first?.uppercased()})).sorted()
-        }
+        return isSearchActive ? [] : Array(Set(names.compactMap{$0.name.first?.uppercased()})).sorted()
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -101,8 +78,13 @@ class FriendsController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToFriendImages"{
             if let indexPath = tableView.indexPathForSelectedRow {
-                (segue.destination as? FriendsImagesController)?.friendImagesArray = sections[indexPath.section][indexPath.row].images
-                tableView.deselectRow(at: indexPath, animated: true)
+                if isSearchActive{
+                    (segue.destination as? FriendsImagesController)?.friendImagesArray = sections[indexPath.section][indexPath.row].images
+                    tableView.deselectRow(at: indexPath, animated: true)
+                } else {
+                    (segue.destination as? FriendsImagesController)?.friendImagesArray = displayData[indexPath.row].images
+                    tableView.deselectRow(at: indexPath, animated: true)
+                }
             }
         }
     }
