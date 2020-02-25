@@ -79,10 +79,10 @@ class FriendsController: UITableViewController {
         if segue.identifier == "goToFriendImages"{
             if let indexPath = tableView.indexPathForSelectedRow {
                 if isSearchActive{
-                    (segue.destination as? FriendsImagesController)?.friendImagesArray = sections[indexPath.section][indexPath.row].images
+                    (segue.destination as? FriendsImagesController)?.friendImagesArray = displayData[indexPath.row].images
                     tableView.deselectRow(at: indexPath, animated: true)
                 } else {
-                    (segue.destination as? FriendsImagesController)?.friendImagesArray = displayData[indexPath.row].images
+                    (segue.destination as? FriendsImagesController)?.friendImagesArray = sections[indexPath.section][indexPath.row].images
                     tableView.deselectRow(at: indexPath, animated: true)
                 }
             }
@@ -94,6 +94,7 @@ extension FriendsController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard !searchText.isEmpty else {
             isSearchActive = false
+            displayData = friendsArray
             tableView.reloadData()
             return
         }

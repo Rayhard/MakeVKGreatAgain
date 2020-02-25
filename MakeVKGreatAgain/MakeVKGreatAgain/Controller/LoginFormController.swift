@@ -32,7 +32,7 @@ class LoginFormController: UIViewController {
         guard let login = loginTextField.text,
             let password = passwordTextField.text else { return false }
         
-        if login == "" && password == "" {
+        if (login == "" && password == "") || (login == "admin" && password == "admin"){
             return true
         } else {
             return false
@@ -40,7 +40,7 @@ class LoginFormController: UIViewController {
     }
     
     func showLoginError() {
-        let alter = UIAlertController(title: "Ошибка", message: "Введен не верный логин или пароль", preferredStyle: .alert)
+        let alter = UIAlertController(title: "Ошибка", message: "Введен не верный логин или пароль, для тестового запуска, оставьте поля пустыми", preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alter.addAction(action)
         present(alter, animated: true, completion: nil)
