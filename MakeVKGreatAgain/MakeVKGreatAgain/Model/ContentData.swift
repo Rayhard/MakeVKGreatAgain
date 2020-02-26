@@ -11,7 +11,10 @@ import UIKit
     // MARK: - Друзья
 let friendsArray: [User] = [User(name: "Nikita",
                                  photo: UIImage(named: "Nikita"),
-                                 images: [UIImage(named: "Nikita")!]),
+                                 images: [UIImage(named: "Nikita")!,
+                                          UIImage(named: "Petya")!,
+                                          UIImage(named: "Olga")!
+]),
                             User(name: "Petya",
                                  photo: UIImage(named: "Petya"),
                                  images: [UIImage(named: "Petya")!]),
