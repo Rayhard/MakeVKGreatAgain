@@ -92,12 +92,12 @@
 			children = (
 				DFA64E0F23EE878A00304BAD /* LoginFormController.swift */,
 				DFAD080D23F0164A0057964B /* FriendsController.swift */,
-				DFA5E7DC23F0663A0032D2BF /* FriendsImagesController.swift */,
 				DF51DD4524066E480092C11D /* AllFriendsImagesController.swift */,
 				DFA5E7D823F065C70032D2BF /* UserGroupController.swift */,
 				DFA5E7DA23F066010032D2BF /* SearchGroupController.swift */,
 				DF3E406923FD203B003AB882 /* NewsController.swift */,
 				DFAD877E2403B2A800E03708 /* MessageController.swift */,
+				DFA5E7DC23F0663A0032D2BF /* FriendsImagesController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

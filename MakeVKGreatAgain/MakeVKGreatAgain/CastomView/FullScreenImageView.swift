@@ -9,6 +9,13 @@
 import UIKit
 
 class FullScreenImageView: UIImageView {
+    var imageArray: [UIImage] = []
+    var focusImage = 0
+    
+    private enum Direction{
+        case left, right
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -23,32 +30,74 @@ class FullScreenImageView: UIImageView {
     }
     
     @objc func onTap(_ sender: UIGestureRecognizer) {
-        let leftAnimationGroup = CAAnimationGroup()
-        leftAnimationGroup.duration = 0.5
-        leftAnimationGroup.fillMode = CAMediaTimingFillMode.backwards
-
-        let rightAnimationGroup = CAAnimationGroup()
-        rightAnimationGroup.duration = 0.5
-        rightAnimationGroup.fillMode = CAMediaTimingFillMode.backwards
-
-        let reductionAnimation = CASpringAnimation(keyPath: "transform.scale")
-        reductionAnimation.toValue = 0.4
-
-        leftAnimationGroup.animations = [reductionAnimation]
-        rightAnimationGroup.animations = [reductionAnimation]
 
         if let swipeGesture = sender as? UISwipeGestureRecognizer {
             switch swipeGesture.direction {
             case .right:
-                self.layer.add(rightAnimationGroup, forKey: nil)
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "imageRightSwipe"), object: nil)
+                guard (focusImage >= 1) && (focusImage <= imageArray.count) else { return }
+                
+                let tmpImage = newImageView(self.frame.minX, direction: .right)
+                superview?.addSubview(tmpImage)
+                self.transform = CGAffineTransform(scaleX: 0.25, y: 0.25)
+                self.focusImage -= 1
+                self.image = self.imageArray[self.focusImage]
+                
+                UIView.animateKeyframes(withDuration: 1,
+                                        delay: 0,
+                                        options: [],
+                                        animations: {
+                                            UIView.addKeyframe(withRelativeStartTime: 0.0,
+                                                               relativeDuration: 0.5) {
+                                                                tmpImage.center.x += self.center.x * 2
+                                            }
+                                            UIView.addKeyframe(withRelativeStartTime: 0.0,
+                                                               relativeDuration: 0.5) {
+                                                                self.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                            }
+                }) { _ in
+                    tmpImage.removeFromSuperview()
+                }
             case .left:
-                self.layer.add(leftAnimationGroup, forKey: nil)
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "imageLeftSwipe"), object: nil)
+                guard (focusImage >= 0) && (focusImage < imageArray.count - 1) else { return }
+                
+                let tmpImage = newImageView(self.frame.maxX, direction: .left)
+                superview?.addSubview(tmpImage)
+                
+                UIView.animateKeyframes(withDuration: 1,
+                                        delay: 0,
+                                        options: [],
+                                        animations: {
+                                            UIView.addKeyframe(withRelativeStartTime: 0.0,
+                                                               relativeDuration: 0.5) {
+                                                                self.transform = CGAffineTransform(scaleX: 0.25, y: 0.25)
+                                            }
+                                            UIView.addKeyframe(withRelativeStartTime: 0.0,
+                                                               relativeDuration: 0.5) {
+                                                                tmpImage.center.x = self.center.x
+                                            }
+                }) { _ in
+                    self.focusImage += 1
+                    self.image = self.imageArray[self.focusImage]
+                    self.transform = CGAffineTransform(scaleX: 1, y: 1)
+                    tmpImage.removeFromSuperview()
+                }
             default:
                 break
             }
         }
+    }
+    
+    private func newImageView(_ tmpX: CGFloat, direction: Direction) -> UIImageView{
+        let tmpImage = UIImageView()
+        if direction == .left{
+            tmpImage.image = imageArray[focusImage + 1]
+            tmpImage.frame = CGRect(x: tmpX, y: self.frame.minY, width: self.frame.width, height: self.frame.height)
+        } else {
+            tmpImage.image = imageArray[focusImage]
+            tmpImage.frame = CGRect(x: tmpX, y: self.frame.minY, width: self.frame.width, height: self.frame.height)
+        }
+        tmpImage.contentMode = .scaleAspectFit
+        return tmpImage
     }
 
 }
