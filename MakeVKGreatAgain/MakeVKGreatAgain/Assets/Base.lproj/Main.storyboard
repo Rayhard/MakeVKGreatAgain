@@ -342,7 +342,7 @@
                                     <outlet property="friendImage" destination="1o7-rr-uok" id="c4G-L6-zCC"/>
                                     <outlet property="friendName" destination="ybt-7V-H0I" id="PSr-8c-1Po"/>
                                     <outlet property="shadowView" destination="tb9-0Z-hPT" id="Mss-Y1-C8v"/>
-                                    <segue destination="lun-Bv-Ech" kind="show" identifier="goToFriendImages" id="dWc-9x-6tN"/>
+                                    <segue destination="uhX-2n-Afb" kind="show" identifier="goToFriendImages" id="9TW-Vw-YNB"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -365,25 +365,25 @@
             <objects>
                 <collectionViewController modalPresentationStyle="fullScreen" id="uhX-2n-Afb" customClass="FriendsImagesController" customModule="MakeVKGreatAgain" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="kNg-wL-lXI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Fgq-0w-THf">
-                            <size key="itemSize" width="411" height="643"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="itemSize" width="200" height="200"/>
+                            <size key="headerReferenceSize" width="50" height="166"/>
                             <size key="footerReferenceSize" width="50" height="50"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="Gi1-7V-QR3" customClass="FriendImagesCell" customModule="MakeVKGreatAgain" customModuleProvider="target">
-                                <rect key="frame" x="1.5" y="0.0" width="411" height="643"/>
+                                <rect key="frame" x="0.0" y="166" width="136" height="136"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="c7M-ZY-mCu">
-                                    <rect key="frame" x="0.0" y="0.0" width="411" height="643"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="136" height="136"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c8J-x8-jOZ">
-                                            <rect key="frame" x="8" y="8" width="395" height="627"/>
+                                            <rect key="frame" x="8" y="8" width="184" height="184"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="144" id="Lgq-VG-VLw"/>
                                                 <constraint firstAttribute="width" constant="144" id="pY9-6t-OKP"/>
@@ -397,14 +397,79 @@
                                         <constraint firstItem="c8J-x8-jOZ" firstAttribute="leading" secondItem="c7M-ZY-mCu" secondAttribute="leading" constant="8" id="I53-fT-XNM"/>
                                     </constraints>
                                 </collectionViewCellContentView>
-                                <size key="customSize" width="411" height="643"/>
+                                <size key="customSize" width="136" height="136"/>
                                 <connections>
                                     <outlet property="friendImageView" destination="c8J-x8-jOZ" id="zYy-T9-lN8"/>
+                                    <segue destination="lun-Bv-Ech" kind="show" identifier="goToFullScreenImages" id="3cy-TF-dDv"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="CellHeader" id="jqT-Oa-yS7" customClass="HeaderFriendImagesView" customModule="MakeVKGreatAgain" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="166"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6h-za-ef9">
+                                    <rect key="frame" x="166" y="55" width="238" height="56"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TrY-gQ-QaH" customClass="ShadowView" customModule="MakeVKGreatAgain" customModuleProvider="target">
+                                    <rect key="frame" x="8" y="8" width="150" height="150"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                            <size key="value" width="0.0" height="0.0"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                            <real key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                            <real key="value" value="6"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHk-eM-TKw">
+                                    <rect key="frame" x="8" y="8" width="150" height="150"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fpt-2B-dPU">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstItem="Fpt-2B-dPU" firstAttribute="width" secondItem="XHk-eM-TKw" secondAttribute="height" multiplier="1:1" id="2A4-EH-tlJ"/>
+                                        <constraint firstItem="Fpt-2B-dPU" firstAttribute="centerX" secondItem="XHk-eM-TKw" secondAttribute="centerX" id="8Yh-k8-gTW"/>
+                                        <constraint firstItem="Fpt-2B-dPU" firstAttribute="centerY" secondItem="XHk-eM-TKw" secondAttribute="centerY" id="GLH-iW-HMc"/>
+                                        <constraint firstAttribute="height" constant="150" id="KP3-3b-FSB"/>
+                                        <constraint firstItem="Fpt-2B-dPU" firstAttribute="height" secondItem="XHk-eM-TKw" secondAttribute="height" id="X3W-Am-Wsd"/>
+                                        <constraint firstAttribute="width" constant="150" id="wHe-xD-84O"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="TrY-gQ-QaH" firstAttribute="centerY" secondItem="XHk-eM-TKw" secondAttribute="centerY" id="0nS-lJ-AXR"/>
+                                <constraint firstItem="TrY-gQ-QaH" firstAttribute="centerX" secondItem="XHk-eM-TKw" secondAttribute="centerX" id="Fbd-Qy-f4j"/>
+                                <constraint firstItem="TrY-gQ-QaH" firstAttribute="width" secondItem="XHk-eM-TKw" secondAttribute="width" id="Gpb-hD-ofN"/>
+                                <constraint firstItem="XHk-eM-TKw" firstAttribute="leading" secondItem="jqT-Oa-yS7" secondAttribute="leading" constant="8" id="I8k-VK-xcs"/>
+                                <constraint firstItem="TrY-gQ-QaH" firstAttribute="width" secondItem="XHk-eM-TKw" secondAttribute="height" multiplier="1:1" id="JTe-Bg-2Lm"/>
+                                <constraint firstAttribute="bottom" secondItem="p6h-za-ef9" secondAttribute="bottom" constant="55" id="Nxq-JY-jli"/>
+                                <constraint firstItem="XHk-eM-TKw" firstAttribute="top" secondItem="jqT-Oa-yS7" secondAttribute="top" constant="8" id="O0Y-Tz-Dn5"/>
+                                <constraint firstAttribute="bottom" secondItem="XHk-eM-TKw" secondAttribute="bottom" constant="8" id="T2L-xf-mf3"/>
+                                <constraint firstItem="p6h-za-ef9" firstAttribute="leading" secondItem="XHk-eM-TKw" secondAttribute="trailing" constant="8" id="TY7-dO-pfJ"/>
+                                <constraint firstItem="p6h-za-ef9" firstAttribute="top" secondItem="jqT-Oa-yS7" secondAttribute="top" constant="55" id="aWx-pF-YYa"/>
+                                <constraint firstAttribute="trailing" secondItem="p6h-za-ef9" secondAttribute="trailing" constant="10" id="gqv-et-3WW"/>
+                                <constraint firstItem="TrY-gQ-QaH" firstAttribute="height" secondItem="XHk-eM-TKw" secondAttribute="height" id="m1W-1K-OL0"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="containerView" destination="XHk-eM-TKw" id="Bgx-ae-zLl"/>
+                                <outlet property="friendAvatarImage" destination="Fpt-2B-dPU" id="xrM-cc-ueb"/>
+                                <outlet property="friendName" destination="p6h-za-ef9" id="Ir7-FH-zBj"/>
+                                <outlet property="shadowView" destination="TrY-gQ-QaH" id="xxu-FN-Pbb"/>
+                            </connections>
+                        </collectionReusableView>
                         <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="CellFooter" id="kYS-JA-6JJ" customClass="FooterFriendImagesView" customModule="MakeVKGreatAgain" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="643" width="414" height="50"/>
+                            <rect key="frame" x="0.0" y="302" width="414" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N9k-JB-X9E" customClass="LikeButton" customModule="MakeVKGreatAgain" customModuleProvider="target">
@@ -436,7 +501,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lPE-1R-tL4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5496" y="-573"/>
+            <point key="canvasLocation" x="4603" y="-573"/>
         </scene>
         <!--All Friends Images Controller-->
         <scene sceneID="ePQ-pF-hZ3">
@@ -521,7 +586,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qEX-aO-1G7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4602.898550724638" y="-573.21428571428567"/>
+            <point key="canvasLocation" x="5526" y="-573"/>
         </scene>
         <!--Поиск групп-->
         <scene sceneID="sgp-mk-9RK">
@@ -593,7 +658,7 @@
         <!--Группы-->
         <scene sceneID="Kbc-mO-6uy">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="PEd-3q-DYf" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="PEd-3q-DYf" customClass="CustomNavigationController" customModule="MakeVKGreatAgain" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Группы" image="person.3" catalog="system" id="jxl-hc-tgG"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mWi-zi-13H">

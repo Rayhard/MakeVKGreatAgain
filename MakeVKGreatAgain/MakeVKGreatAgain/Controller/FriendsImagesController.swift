@@ -10,7 +10,7 @@ import UIKit
 
 class FriendsImagesController: UICollectionViewController {
     
-    var friendImagesArray: [UIImage] = []
+    var friend: User!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,15 +22,24 @@ class FriendsImagesController: UICollectionViewController {
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return friendImagesArray.count
+        return friend.images.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! FriendImagesCell
 
-        cell.friendImageView.image = friendImagesArray[indexPath.row]
+        cell.friendImageView.image = friend.images[indexPath.row]
 
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToFullScreenImages"{
+            if let indexPath = collectionView.indexPathsForSelectedItems{
+                (segue.destination as? AllFriendsImagesController)?.friendImagesArray = friend.images
+                collectionView.deselectItem(at: indexPath[0], animated: true)
+            }
+        }
     }
 }
 
@@ -41,8 +50,10 @@ extension FriendsImagesController {
         if kind == UICollectionView.elementKindSectionHeader {
             let view = collectionView
                 .dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
-                                                  withReuseIdentifier: "id1",
-                                                  for: indexPath)
+                                                  withReuseIdentifier: "CellHeader",
+                                                  for: indexPath) as! HeaderFriendImagesView
+            view.friendAvatarImage.image = friend.images[0]
+            view.friendName.text = friend.name
             return view
         } else {
             let view = collectionView
