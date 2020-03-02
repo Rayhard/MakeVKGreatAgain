@@ -29,5 +29,19 @@ class LikeButton: UIButton {
             self.likeCount += 1
             self.isLikebl = true
         }
+        likeButtonAnimate()
+    }
+    
+    private func likeButtonAnimate(){
+        UIView.animate(withDuration: 1.0,
+                       delay: 0,
+                       usingSpringWithDamping: 0.5,
+                       initialSpringVelocity: 0,
+                       options: [],
+                       animations: {
+                        self.imageView?.frame.origin.x -= 20
+                        self.imageView?.frame.origin.y -= 20
+                        
+        })
     }
 }

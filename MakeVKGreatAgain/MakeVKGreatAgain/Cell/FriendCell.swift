@@ -25,4 +25,27 @@ class FriendCell: UITableViewCell {
         self.shadowView.layer.cornerRadius = self.shadowView.frame.width / 2
         self.containerView.layer.cornerRadius = self.containerView.frame.width / 2
     }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onTap(_:)))
+        
+        friendImage.addGestureRecognizer(tapGesture)
+        friendImage.isUserInteractionEnabled = true
+        
+    }
+    
+    @objc func onTap(_ sender: UIGestureRecognizer) {
+        let animation = CASpringAnimation(keyPath: "transform.scale")
+        animation.fromValue = 0.9
+        animation.toValue = 1
+        animation.stiffness = 100
+        animation.mass = 2
+        animation.duration = 0.3
+        animation.beginTime = CACurrentMediaTime()
+        animation.fillMode = CAMediaTimingFillMode.backwards
+        self.containerView.layer.add(animation, forKey: nil)
+        self.shadowView.layer.add(animation, forKey: nil)
+    }
 }
