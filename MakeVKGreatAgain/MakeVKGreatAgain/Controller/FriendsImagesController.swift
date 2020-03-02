@@ -79,3 +79,23 @@ class FriendsImagesController: UICollectionViewController {
     */
 
 }
+
+extension FriendsImagesController {
+    override func collectionView(_ collectionView: UICollectionView,
+                                 viewForSupplementaryElementOfKind kind: String,
+                                 at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionHeader {
+            let view = collectionView
+                .dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
+                                                  withReuseIdentifier: "id1",
+                                                  for: indexPath)
+            return view
+        } else {
+            let view = collectionView
+                .dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter,
+                                                  withReuseIdentifier: "CellFooter",
+                                                  for: indexPath) as! FooterFriendImagesView
+            return view
+        }
+    }
+}

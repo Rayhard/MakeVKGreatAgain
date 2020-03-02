@@ -9,8 +9,6 @@
 import UIKit
 
 class SearchGroupCell: UITableViewCell {
-
     @IBOutlet weak var searchGroupImage: UIImageView!
     @IBOutlet weak var searchGroupName: UILabel!
-    
 }

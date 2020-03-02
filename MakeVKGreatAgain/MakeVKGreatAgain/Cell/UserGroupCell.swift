@@ -9,7 +9,6 @@
 import UIKit
 
 class UserGroupCell: UITableViewCell {
-
     @IBOutlet weak var userGroupImage: UIImageView!
     @IBOutlet weak var userGroupName: UILabel!
 }
