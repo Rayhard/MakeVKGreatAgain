@@ -14,7 +14,6 @@
 		DFA5E7E523F06A100032D2BF /* SearchGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA5E7E423F06A100032D2BF /* SearchGroupCell.swift */; };
 		DFA64E1023EE878A00304BAD /* LoginFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA64E0F23EE878A00304BAD /* LoginFormController.swift */; };
 		DFA841E123F6814B00247396 /* FooterFriendImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA841E023F6814B00247396 /* FooterFriendImagesView.swift */; };
-		DFA841E323F6A0F300247396 /* StackViewNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA841E223F6A0F300247396 /* StackViewNavigation.swift */; };
 		DFAC200123F1429B00A1891A /* FriendImagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAC200023F1429B00A1891A /* FriendImagesCell.swift */; };
 		DFAD080E23F0164A0057964B /* FriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD080D23F0164A0057964B /* FriendsController.swift */; };
 		DFAD081123F016B00057964B /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD081023F016B00057964B /* FriendCell.swift */; };
@@ -37,7 +36,6 @@
 		DFA5E7E423F06A100032D2BF /* SearchGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGroupCell.swift; sourceTree = "<group>"; };
 		DFA64E0F23EE878A00304BAD /* LoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormController.swift; sourceTree = "<group>"; };
 		DFA841E023F6814B00247396 /* FooterFriendImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterFriendImagesView.swift; sourceTree = "<group>"; };
-		DFA841E223F6A0F300247396 /* StackViewNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewNavigation.swift; sourceTree = "<group>"; };
 		DFAC200023F1429B00A1891A /* FriendImagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendImagesCell.swift; sourceTree = "<group>"; };
 		DFAD080D23F0164A0057964B /* FriendsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsController.swift; sourceTree = "<group>"; };
 		DFAD081023F016B00057964B /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
@@ -152,7 +150,6 @@
 			isa = PBXGroup;
 			children = (
 				DFB50F2423F535490086CAA2 /* LikeButton.swift */,
-				DFA841E223F6A0F300247396 /* StackViewNavigation.swift */,
 			);
 			path = CastomControl;
 			sourceTree = "<group>";
@@ -241,7 +238,6 @@
 				DFAD081123F016B00057964B /* FriendCell.swift in Sources */,
 				DFA5E7E523F06A100032D2BF /* SearchGroupCell.swift in Sources */,
 				DFB467A823F28DA600F274AC /* GradientView.swift in Sources */,
-				DFA841E323F6A0F300247396 /* StackViewNavigation.swift in Sources */,
 				DFAD081423F017630057964B /* DataModel.swift in Sources */,
 				DFAC200123F1429B00A1891A /* FriendImagesCell.swift in Sources */,
 				DFA841E123F6814B00247396 /* FooterFriendImagesView.swift in Sources */,
