@@ -32,7 +32,7 @@ class LoginFormController: UIViewController {
         guard let login = loginTextField.text,
             let password = passwordTextField.text else { return false }
         
-        if login == "admin" && password == "admin" {
+        if login == "" && password == "" {
             return true
         } else {
             return false

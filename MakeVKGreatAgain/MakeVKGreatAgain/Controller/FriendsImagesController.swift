@@ -8,8 +8,6 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
-
 class FriendsImagesController: UICollectionViewController {
     
     var friendImagesArray: [UIImage] = []
@@ -28,7 +26,7 @@ class FriendsImagesController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FriendImagesCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! FriendImagesCell
 
         cell.friendImageView.image = friendImagesArray[indexPath.row]
 

@@ -13,4 +13,3 @@ class FriendImagesCell: UICollectionViewCell {
     @IBOutlet weak var contentImageView: UIView!
     
 }
-

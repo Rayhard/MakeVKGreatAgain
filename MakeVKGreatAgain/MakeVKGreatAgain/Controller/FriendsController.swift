@@ -10,43 +10,9 @@ import UIKit
 
 class FriendsController: UITableViewController {
     
-    let friendsArray: [User] = [User(name: "Nikita",
-                                     photo: UIImage(named: "Nikita"),
-                                     images: [UIImage(named: "Nikita")!]),
-                                User(name: "Petya",
-                                     photo: UIImage(named: "Petya"),
-                                     images: [UIImage(named: "Petya")!]),
-                                User(name: "Olga",
-                                     photo: UIImage(named: "Olga"),
-                                     images: [UIImage(named: "Olga")!]),
-                                User(name: "Nikita1",
-                                     photo: UIImage(named: "Nikita"),
-                                     images: [UIImage(named: "Nikita")!]),
-                                User(name: "Petya1",
-                                     photo: UIImage(named: "Petya"),
-                                     images: [UIImage(named: "Petya")!]),
-                                User(name: "Olga1",
-                                     photo: UIImage(named: "Olga"),
-                                     images: [UIImage(named: "Olga")!]),
-                                User(name: "Nikita2",
-                                     photo: UIImage(named: "Nikita"),
-                                     images: [UIImage(named: "Nikita")!]),
-                                User(name: "Petya2",
-                                     photo: UIImage(named: "Petya"),
-                                     images: [UIImage(named: "Petya")!]),
-                                User(name: "Olga2",
-                                     photo: UIImage(named: "Olga"),
-                                     images: [UIImage(named: "Olga")!]),
-                                User(name: "Nikita3",
-                                     photo: UIImage(named: "Nikita"),
-                                     images: [UIImage(named: "Nikita")!]),
-                                User(name: "Petya3",
-                                     photo: UIImage(named: "Petya"),
-                                     images: [UIImage(named: "Petya")!]),
-                                User(name: "Olga3",
-                                     photo: UIImage(named: "Olga"),
-                                     images: [UIImage(named: "Olga")!]),
-    ]
+    @IBOutlet weak var searchBar: UISearchBar!
+    var displayData: [User] = []
+    var isSearchActive: Bool = false
     
     var names: [User]{
         return friendsArray.sorted(by: {$0.name < $1.name})
@@ -68,31 +34,43 @@ class FriendsController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        searchBar.delegate = self as UISearchBarDelegate
+        tableView.tableHeaderView = searchBar
+        tableView.tableFooterView = UIView()
+        tableView.keyboardDismissMode = .onDrag
+        
+        displayData = friendsArray
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return sections.count
+        return isSearchActive ? 1 : sections.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sections[section].count
+        return isSearchActive ? displayData.count : sections[section].count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sections[section].first?.name.first?.uppercased()
+        return isSearchActive ? "" : sections[section].first?.name.first?.uppercased()
     }
     
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return Array(Set(names.compactMap{$0.name.first?.uppercased()})).sorted()
+        return isSearchActive ? [] : Array(Set(names.compactMap{$0.name.first?.uppercased()})).sorted()
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! FriendCell
-        let name = sections[indexPath.section][indexPath.row].name
-        let image = sections[indexPath.section][indexPath.row].photo
-        cell.friendName.text = name
-        cell.friendImage.image = image
+        if isSearchActive{
+            let name = displayData[indexPath.row].name
+            let image = displayData[indexPath.row].photo
+            cell.friendName.text = name
+            cell.friendImage.image = image
+        } else {
+            let name = sections[indexPath.section][indexPath.row].name
+            let image = sections[indexPath.section][indexPath.row].photo
+            cell.friendName.text = name
+            cell.friendImage.image = image
+        }
 
         return cell
     }
@@ -100,9 +78,36 @@ class FriendsController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToFriendImages"{
             if let indexPath = tableView.indexPathForSelectedRow {
-                (segue.destination as? FriendsImagesController)?.friendImagesArray = sections[indexPath.section][indexPath.row].images
-                tableView.deselectRow(at: indexPath, animated: true)
+                if isSearchActive{
+                    (segue.destination as? FriendsImagesController)?.friendImagesArray = sections[indexPath.section][indexPath.row].images
+                    tableView.deselectRow(at: indexPath, animated: true)
+                } else {
+                    (segue.destination as? FriendsImagesController)?.friendImagesArray = displayData[indexPath.row].images
+                    tableView.deselectRow(at: indexPath, animated: true)
+                }
             }
         }
+    }
+}
+
+extension FriendsController: UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else {
+            isSearchActive = false
+            tableView.reloadData()
+            return
+        }
+        displayData = friendsArray.filter { $0.name.range(of: searchText, options: .caseInsensitive) != nil }
+        isSearchActive = true
+        tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.endEditing(true)
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
+    {
+        self.searchBar.endEditing(true)
     }
 }

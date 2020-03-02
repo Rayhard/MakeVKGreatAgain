@@ -20,7 +20,8 @@ struct Group {
     let photo: UIImage?
 }
 
-var userGroupArray = [Group(name: "GeekBrains", photo: UIImage(named: "GeekBrains")),
-                      Group(name: "PlayStation", photo: UIImage(named: "PlayStation"))]
-var searchGroupArray = [Group(name: "Kanobu", photo: UIImage(named: "Kanobu")),
-                        Group(name: "Pikabu", photo: UIImage(named: "Pikabu"))]
+struct News {
+    let author: Group
+    let contentText: String
+    let contentImage: UIImage?
+}
