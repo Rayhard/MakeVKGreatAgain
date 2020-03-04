@@ -37,7 +37,6 @@ class NewsController: UITableViewController {
         if newsArray[indexPath.row].contentImage == nil {
             cell.contentImageHeight.constant = 1
         } else {
-//            cell.contentImageHeight.constant = (newsArray[indexPath.row].contentImage?.size.height)!
             cell.contentImage.image = newsArray[indexPath.row].contentImage
         }
 
