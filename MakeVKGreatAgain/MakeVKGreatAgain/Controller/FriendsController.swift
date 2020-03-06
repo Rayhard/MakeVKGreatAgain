@@ -79,10 +79,10 @@ class FriendsController: UITableViewController {
         if segue.identifier == "goToFriendImages"{
             if let indexPath = tableView.indexPathForSelectedRow {
                 if isSearchActive{
-                    (segue.destination as? AllFriendsImagesController)?.friendImagesArray = displayData[indexPath.row].images
+                    (segue.destination as? FriendsImagesController)?.friend = displayData[indexPath.row]
                     tableView.deselectRow(at: indexPath, animated: true)
                 } else {
-                    (segue.destination as? AllFriendsImagesController)?.friendImagesArray = sections[indexPath.section][indexPath.row].images
+                    (segue.destination as? FriendsImagesController)?.friend = sections[indexPath.section][indexPath.row]
                     tableView.deselectRow(at: indexPath, animated: true)
                 }
             }

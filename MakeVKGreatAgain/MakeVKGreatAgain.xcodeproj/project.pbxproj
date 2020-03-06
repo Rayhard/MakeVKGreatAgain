@@ -26,6 +26,11 @@
 		DFAD081423F017630057964B /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD081323F017630057964B /* DataModel.swift */; };
 		DFAD877D2403AA7C00E03708 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD877C2403AA7C00E03708 /* LoadingView.swift */; };
 		DFAD877F2403B2A800E03708 /* MessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD877E2403B2A800E03708 /* MessageController.swift */; };
+		DFB17666240D001200D17CAB /* HeaderFriendImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB17665240D001200D17CAB /* HeaderFriendImagesView.swift */; };
+		DFB17669240D124500D17CAB /* CustomPushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB17668240D124500D17CAB /* CustomPushAnimator.swift */; };
+		DFB1766B240D133C00D17CAB /* CustomPopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB1766A240D133C00D17CAB /* CustomPopAnimator.swift */; };
+		DFB1766D240D13F800D17CAB /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB1766C240D13F800D17CAB /* CustomNavigationController.swift */; };
+		DFB1766F240D153600D17CAB /* CustomInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB1766E240D153600D17CAB /* CustomInteractiveTransition.swift */; };
 		DFB467A823F28DA600F274AC /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB467A723F28DA600F274AC /* GradientView.swift */; };
 		DFB4D22C23EDA61D0025359F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB4D22B23EDA61D0025359F /* AppDelegate.swift */; };
 		DFB4D22E23EDA61D0025359F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB4D22D23EDA61D0025359F /* SceneDelegate.swift */; };
@@ -56,6 +61,11 @@
 		DFAD081323F017630057964B /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		DFAD877C2403AA7C00E03708 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		DFAD877E2403B2A800E03708 /* MessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageController.swift; sourceTree = "<group>"; };
+		DFB17665240D001200D17CAB /* HeaderFriendImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderFriendImagesView.swift; sourceTree = "<group>"; };
+		DFB17668240D124500D17CAB /* CustomPushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPushAnimator.swift; sourceTree = "<group>"; };
+		DFB1766A240D133C00D17CAB /* CustomPopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopAnimator.swift; sourceTree = "<group>"; };
+		DFB1766C240D13F800D17CAB /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		DFB1766E240D153600D17CAB /* CustomInteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInteractiveTransition.swift; sourceTree = "<group>"; };
 		DFB467A723F28DA600F274AC /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		DFB4D22823EDA61D0025359F /* MakeVKGreatAgain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MakeVKGreatAgain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB4D22B23EDA61D0025359F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,12 +89,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DF3E406823FD1656003AB882 /* CastomCellXib */ = {
+		DF3E406823FD1656003AB882 /* CustomCellXib */ = {
 			isa = PBXGroup;
 			children = (
 				DF3E406423FD15E0003AB882 /* NewsCell.xib */,
 			);
-			path = CastomCellXib;
+			path = CustomCellXib;
 			sourceTree = "<group>";
 		};
 		DFAD080A23F0125A0057964B /* Controller */ = {
@@ -92,12 +102,12 @@
 			children = (
 				DFA64E0F23EE878A00304BAD /* LoginFormController.swift */,
 				DFAD080D23F0164A0057964B /* FriendsController.swift */,
+				DFA5E7DC23F0663A0032D2BF /* FriendsImagesController.swift */,
 				DF51DD4524066E480092C11D /* AllFriendsImagesController.swift */,
 				DFA5E7D823F065C70032D2BF /* UserGroupController.swift */,
 				DFA5E7DA23F066010032D2BF /* SearchGroupController.swift */,
 				DF3E406923FD203B003AB882 /* NewsController.swift */,
 				DFAD877E2403B2A800E03708 /* MessageController.swift */,
-				DFA5E7DC23F0663A0032D2BF /* FriendsImagesController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -121,6 +131,7 @@
 				DFA5E7E423F06A100032D2BF /* SearchGroupCell.swift */,
 				DFA841E023F6814B00247396 /* FooterFriendImagesView.swift */,
 				DF3E406623FD1643003AB882 /* NewsCell.swift */,
+				DFB17665240D001200D17CAB /* HeaderFriendImagesView.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -134,7 +145,17 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		DFB467A923F28E7100F274AC /* CastomView */ = {
+		DFB17667240D11DA00D17CAB /* CustomTransitionAnimated */ = {
+			isa = PBXGroup;
+			children = (
+				DFB17668240D124500D17CAB /* CustomPushAnimator.swift */,
+				DFB1766A240D133C00D17CAB /* CustomPopAnimator.swift */,
+				DFB1766E240D153600D17CAB /* CustomInteractiveTransition.swift */,
+			);
+			path = CustomTransitionAnimated;
+			sourceTree = "<group>";
+		};
+		DFB467A923F28E7100F274AC /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
 				DFAD877C2403AA7C00E03708 /* LoadingView.swift */,
@@ -142,7 +163,7 @@
 				DFB50F2623F53F2B0086CAA2 /* ShadowView.swift */,
 				DF51DD47240686DF0092C11D /* FullScreenImageView.swift */,
 			);
-			path = CastomView;
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 		DFB4D21F23EDA61D0025359F = {
@@ -166,24 +187,26 @@
 			children = (
 				DFB4D22B23EDA61D0025359F /* AppDelegate.swift */,
 				DFB4D22D23EDA61D0025359F /* SceneDelegate.swift */,
-				DFB50F2323F534FE0086CAA2 /* CastomControl */,
-				DFB467A923F28E7100F274AC /* CastomView */,
+				DFB17667240D11DA00D17CAB /* CustomTransitionAnimated */,
+				DFB50F2323F534FE0086CAA2 /* CustomControl */,
+				DFB467A923F28E7100F274AC /* CustomView */,
 				DFAD081223F017460057964B /* Model */,
 				DFAD080A23F0125A0057964B /* Controller */,
 				DFAD080C23F015D70057964B /* Cell */,
-				DF3E406823FD1656003AB882 /* CastomCellXib */,
+				DF3E406823FD1656003AB882 /* CustomCellXib */,
 				DFAD080B23F0127A0057964B /* Assets */,
 				DFB4D23923EDA61F0025359F /* Info.plist */,
 			);
 			path = MakeVKGreatAgain;
 			sourceTree = "<group>";
 		};
-		DFB50F2323F534FE0086CAA2 /* CastomControl */ = {
+		DFB50F2323F534FE0086CAA2 /* CustomControl */ = {
 			isa = PBXGroup;
 			children = (
 				DFB50F2423F535490086CAA2 /* LikeButton.swift */,
+				DFB1766C240D13F800D17CAB /* CustomNavigationController.swift */,
 			);
-			path = CastomControl;
+			path = CustomControl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,14 +290,19 @@
 				DFA5E7D923F065C70032D2BF /* UserGroupController.swift in Sources */,
 				DFB4D22E23EDA61D0025359F /* SceneDelegate.swift in Sources */,
 				DF3E406A23FD203B003AB882 /* NewsController.swift in Sources */,
+				DFB17666240D001200D17CAB /* HeaderFriendImagesView.swift in Sources */,
 				DFA5E7DB23F066010032D2BF /* SearchGroupController.swift in Sources */,
 				DFB50F2523F535490086CAA2 /* LikeButton.swift in Sources */,
+				DFB1766D240D13F800D17CAB /* CustomNavigationController.swift in Sources */,
 				DFA5E7E323F069F60032D2BF /* UserGroupCell.swift in Sources */,
 				DF51DD48240686DF0092C11D /* FullScreenImageView.swift in Sources */,
 				DFB50F2723F53F2B0086CAA2 /* ShadowView.swift in Sources */,
+				DFB1766F240D153600D17CAB /* CustomInteractiveTransition.swift in Sources */,
 				DFAD081123F016B00057964B /* FriendCell.swift in Sources */,
 				DFAD877D2403AA7C00E03708 /* LoadingView.swift in Sources */,
+				DFB1766B240D133C00D17CAB /* CustomPopAnimator.swift in Sources */,
 				DFA5E7E523F06A100032D2BF /* SearchGroupCell.swift in Sources */,
+				DFB17669240D124500D17CAB /* CustomPushAnimator.swift in Sources */,
 				DFB467A823F28DA600F274AC /* GradientView.swift in Sources */,
 				DFAD877F2403B2A800E03708 /* MessageController.swift in Sources */,
 				DF3E406723FD1643003AB882 /* NewsCell.swift in Sources */,
