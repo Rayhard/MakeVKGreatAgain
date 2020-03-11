@@ -39,6 +39,7 @@
 		DFB4D23823EDA61F0025359F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFB4D23623EDA61F0025359F /* LaunchScreen.storyboard */; };
 		DFB50F2523F535490086CAA2 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB50F2423F535490086CAA2 /* LikeButton.swift */; };
 		DFB50F2723F53F2B0086CAA2 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB50F2623F53F2B0086CAA2 /* ShadowView.swift */; };
+		DFE5E1972418CFE60064BB6A /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE5E1962418CFE60064BB6A /* Session.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		DFB4D23923EDA61F0025359F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DFB50F2423F535490086CAA2 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		DFB50F2623F53F2B0086CAA2 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		DFE5E1962418CFE60064BB6A /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,8 +187,7 @@
 		DFB4D22A23EDA61D0025359F /* MakeVKGreatAgain */ = {
 			isa = PBXGroup;
 			children = (
-				DFB4D22B23EDA61D0025359F /* AppDelegate.swift */,
-				DFB4D22D23EDA61D0025359F /* SceneDelegate.swift */,
+				DFE5E1952418CFC50064BB6A /* Singleton */,
 				DFB17667240D11DA00D17CAB /* CustomTransitionAnimated */,
 				DFB50F2323F534FE0086CAA2 /* CustomControl */,
 				DFB467A923F28E7100F274AC /* CustomView */,
@@ -196,6 +197,8 @@
 				DF3E406823FD1656003AB882 /* CustomCellXib */,
 				DFAD080B23F0127A0057964B /* Assets */,
 				DFB4D23923EDA61F0025359F /* Info.plist */,
+				DFB4D22B23EDA61D0025359F /* AppDelegate.swift */,
+				DFB4D22D23EDA61D0025359F /* SceneDelegate.swift */,
 			);
 			path = MakeVKGreatAgain;
 			sourceTree = "<group>";
@@ -207,6 +210,14 @@
 				DFB1766C240D13F800D17CAB /* CustomNavigationController.swift */,
 			);
 			path = CustomControl;
+			sourceTree = "<group>";
+		};
+		DFE5E1952418CFC50064BB6A /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				DFE5E1962418CFE60064BB6A /* Session.swift */,
+			);
+			path = Singleton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF51DD4624066E480092C11D /* AllFriendsImagesController.swift in Sources */,
+				DFE5E1972418CFE60064BB6A /* Session.swift in Sources */,
 				DFA64E1023EE878A00304BAD /* LoginFormController.swift in Sources */,
 				DFAD080E23F0164A0057964B /* FriendsController.swift in Sources */,
 				DFA5E7DD23F0663A0032D2BF /* FriendsImagesController.swift in Sources */,
