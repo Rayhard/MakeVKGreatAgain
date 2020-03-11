@@ -21,6 +21,9 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VK Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vO-Re-Hqd">
                                         <rect key="frame" x="100" y="50" width="214" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="214" id="n8g-2r-Dvn"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                         <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -483,7 +486,7 @@
                                 </button>
                             </subviews>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="N9k-JB-X9E" secondAttribute="trailing" priority="999" constant="280" id="1N7-Pu-eLk"/>
+                                <constraint firstAttribute="trailing" secondItem="N9k-JB-X9E" secondAttribute="trailing" constant="280" id="1N7-Pu-eLk"/>
                                 <constraint firstItem="N9k-JB-X9E" firstAttribute="top" secondItem="kYS-JA-6JJ" secondAttribute="top" constant="6" id="74y-sI-iU3"/>
                                 <constraint firstItem="N9k-JB-X9E" firstAttribute="leading" secondItem="kYS-JA-6JJ" secondAttribute="leading" constant="20" symbolic="YES" id="Gpv-11-jFQ"/>
                                 <constraint firstAttribute="bottom" secondItem="N9k-JB-X9E" secondAttribute="bottom" constant="6" id="Gwq-Q8-8ND"/>
@@ -518,7 +521,7 @@
                                 <rect key="frame" x="0.0" y="830" width="414" height="32"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1kG-tD-nVf" customClass="LikeButton" customModule="MakeVKGreatAgain" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="5" width="65" height="22"/>
+                                        <rect key="frame" x="8" y="0.0" width="65" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="65" id="rce-br-aCZ"/>
                                         </constraints>
@@ -530,14 +533,14 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMK-Bb-DqP">
-                                        <rect key="frame" x="182" y="5" width="50" height="22"/>
+                                        <rect key="frame" x="182" y="0.0" width="50" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="5Zo-1W-2BS"/>
                                         </constraints>
                                         <state key="normal" image="message" catalog="system"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezf-9G-caO">
-                                        <rect key="frame" x="346" y="5" width="60" height="22"/>
+                                        <rect key="frame" x="346" y="0.0" width="60" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="v27-D4-2MM"/>
                                         </constraints>
@@ -545,20 +548,20 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="JMK-Bb-DqP" secondAttribute="bottom" constant="5" id="0N7-3c-Smm"/>
-                                    <constraint firstAttribute="bottom" secondItem="1kG-tD-nVf" secondAttribute="bottom" constant="5" id="0ht-5V-sco"/>
+                                    <constraint firstAttribute="bottom" secondItem="JMK-Bb-DqP" secondAttribute="bottom" id="0N7-3c-Smm"/>
+                                    <constraint firstAttribute="bottom" secondItem="1kG-tD-nVf" secondAttribute="bottom" id="0ht-5V-sco"/>
                                     <constraint firstItem="JMK-Bb-DqP" firstAttribute="leading" secondItem="1kG-tD-nVf" secondAttribute="trailing" priority="999" constant="110" id="7m4-iJ-zpx"/>
-                                    <constraint firstAttribute="bottom" secondItem="ezf-9G-caO" secondAttribute="bottom" constant="5" id="8sY-Qi-FiQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="ezf-9G-caO" secondAttribute="bottom" id="8sY-Qi-FiQ"/>
                                     <constraint firstItem="JMK-Bb-DqP" firstAttribute="centerX" secondItem="kMO-R4-z53" secondAttribute="centerX" id="Bz0-Cr-kYB"/>
                                     <constraint firstItem="1kG-tD-nVf" firstAttribute="centerY" secondItem="kMO-R4-z53" secondAttribute="centerY" id="EM2-jW-TZK"/>
                                     <constraint firstAttribute="trailing" secondItem="ezf-9G-caO" secondAttribute="trailing" constant="8" id="Fhs-aM-Kd2"/>
-                                    <constraint firstItem="JMK-Bb-DqP" firstAttribute="top" secondItem="kMO-R4-z53" secondAttribute="top" constant="5" id="RfH-wh-Lyw"/>
+                                    <constraint firstItem="JMK-Bb-DqP" firstAttribute="top" secondItem="kMO-R4-z53" secondAttribute="top" priority="999" id="RfH-wh-Lyw"/>
                                     <constraint firstItem="1kG-tD-nVf" firstAttribute="leading" secondItem="kMO-R4-z53" secondAttribute="leading" constant="8" id="cCv-d7-sh5"/>
                                     <constraint firstItem="ezf-9G-caO" firstAttribute="leading" secondItem="JMK-Bb-DqP" secondAttribute="trailing" priority="999" constant="113" id="ecw-YG-az4"/>
                                     <constraint firstItem="JMK-Bb-DqP" firstAttribute="centerY" secondItem="kMO-R4-z53" secondAttribute="centerY" id="uJx-0a-tUh"/>
                                     <constraint firstItem="ezf-9G-caO" firstAttribute="centerY" secondItem="kMO-R4-z53" secondAttribute="centerY" id="wEG-P1-QoP"/>
-                                    <constraint firstItem="ezf-9G-caO" firstAttribute="top" secondItem="kMO-R4-z53" secondAttribute="top" constant="5" id="xgS-JA-aP4"/>
-                                    <constraint firstItem="1kG-tD-nVf" firstAttribute="top" secondItem="kMO-R4-z53" secondAttribute="top" constant="5" id="zbV-Qk-MmM"/>
+                                    <constraint firstItem="ezf-9G-caO" firstAttribute="top" secondItem="kMO-R4-z53" secondAttribute="top" priority="999" id="xgS-JA-aP4"/>
+                                    <constraint firstItem="1kG-tD-nVf" firstAttribute="top" secondItem="kMO-R4-z53" secondAttribute="top" priority="999" id="zbV-Qk-MmM"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -682,6 +685,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <inset key="scrollIndicatorInsets" minX="0.0" minY="3" maxX="0.0" maxY="0.0"/>
                         <connections>
                             <outlet property="dataSource" destination="oLP-0g-nXI" id="ZCw-q1-nvy"/>
                             <outlet property="delegate" destination="oLP-0g-nXI" id="FiE-Nr-mPq"/>
