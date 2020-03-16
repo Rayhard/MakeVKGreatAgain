@@ -18,10 +18,9 @@
 		DFA5E7DD23F0663A0032D2BF /* FriendsImagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA5E7DC23F0663A0032D2BF /* FriendsImagesController.swift */; };
 		DFA5E7E323F069F60032D2BF /* UserGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA5E7E223F069F60032D2BF /* UserGroupCell.swift */; };
 		DFA5E7E523F06A100032D2BF /* SearchGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA5E7E423F06A100032D2BF /* SearchGroupCell.swift */; };
-		DFA64E1023EE878A00304BAD /* LoginFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA64E0F23EE878A00304BAD /* LoginFormController.swift */; };
 		DFA841E123F6814B00247396 /* FooterFriendImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA841E023F6814B00247396 /* FooterFriendImagesView.swift */; };
 		DFA93343241F5BD400DBE6A4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DFA93342241F5BD400DBE6A4 /* Alamofire */; };
-		DFA93345241F5CDB00DBE6A4 /* OauthLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA93344241F5CDB00DBE6A4 /* OauthLoginController.swift */; };
+		DFA93347241F935A00DBE6A4 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA93346241F935A00DBE6A4 /* LoginController.swift */; };
 		DFAC200123F1429B00A1891A /* FriendImagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAC200023F1429B00A1891A /* FriendImagesCell.swift */; };
 		DFAD080E23F0164A0057964B /* FriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD080D23F0164A0057964B /* FriendsController.swift */; };
 		DFAD081123F016B00057964B /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD081023F016B00057964B /* FriendCell.swift */; };
@@ -56,9 +55,8 @@
 		DFA5E7DC23F0663A0032D2BF /* FriendsImagesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsImagesController.swift; sourceTree = "<group>"; };
 		DFA5E7E223F069F60032D2BF /* UserGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupCell.swift; sourceTree = "<group>"; };
 		DFA5E7E423F06A100032D2BF /* SearchGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGroupCell.swift; sourceTree = "<group>"; };
-		DFA64E0F23EE878A00304BAD /* LoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormController.swift; sourceTree = "<group>"; };
 		DFA841E023F6814B00247396 /* FooterFriendImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterFriendImagesView.swift; sourceTree = "<group>"; };
-		DFA93344241F5CDB00DBE6A4 /* OauthLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OauthLoginController.swift; sourceTree = "<group>"; };
+		DFA93346241F935A00DBE6A4 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		DFAC200023F1429B00A1891A /* FriendImagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendImagesCell.swift; sourceTree = "<group>"; };
 		DFAD080D23F0164A0057964B /* FriendsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsController.swift; sourceTree = "<group>"; };
 		DFAD081023F016B00057964B /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
@@ -106,7 +104,6 @@
 		DFAD080A23F0125A0057964B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				DFA64E0F23EE878A00304BAD /* LoginFormController.swift */,
 				DFAD080D23F0164A0057964B /* FriendsController.swift */,
 				DFA5E7DC23F0663A0032D2BF /* FriendsImagesController.swift */,
 				DF51DD4524066E480092C11D /* AllFriendsImagesController.swift */,
@@ -114,7 +111,7 @@
 				DFA5E7DA23F066010032D2BF /* SearchGroupController.swift */,
 				DF3E406923FD203B003AB882 /* NewsController.swift */,
 				DFAD877E2403B2A800E03708 /* MessageController.swift */,
-				DFA93344241F5CDB00DBE6A4 /* OauthLoginController.swift */,
+				DFA93346241F935A00DBE6A4 /* LoginController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -305,7 +302,6 @@
 			files = (
 				DF51DD4624066E480092C11D /* AllFriendsImagesController.swift in Sources */,
 				DFE5E1972418CFE60064BB6A /* Session.swift in Sources */,
-				DFA64E1023EE878A00304BAD /* LoginFormController.swift in Sources */,
 				DFAD080E23F0164A0057964B /* FriendsController.swift in Sources */,
 				DFA5E7DD23F0663A0032D2BF /* FriendsImagesController.swift in Sources */,
 				DF3E406C23FD2288003AB882 /* ContentData.swift in Sources */,
@@ -323,12 +319,12 @@
 				DFB1766F240D153600D17CAB /* CustomInteractiveTransition.swift in Sources */,
 				DFAD081123F016B00057964B /* FriendCell.swift in Sources */,
 				DFAD877D2403AA7C00E03708 /* LoadingView.swift in Sources */,
+				DFA93347241F935A00DBE6A4 /* LoginController.swift in Sources */,
 				DFB1766B240D133C00D17CAB /* CustomPopAnimator.swift in Sources */,
 				DFA5E7E523F06A100032D2BF /* SearchGroupCell.swift in Sources */,
 				DFB17669240D124500D17CAB /* CustomPushAnimator.swift in Sources */,
 				DFB467A823F28DA600F274AC /* GradientView.swift in Sources */,
 				DFAD877F2403B2A800E03708 /* MessageController.swift in Sources */,
-				DFA93345241F5CDB00DBE6A4 /* OauthLoginController.swift in Sources */,
 				DF3E406723FD1643003AB882 /* NewsCell.swift in Sources */,
 				DFAD081423F017630057964B /* DataModel.swift in Sources */,
 				DFAC200123F1429B00A1891A /* FriendImagesCell.swift in Sources */,

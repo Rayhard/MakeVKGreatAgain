@@ -1,5 +1,5 @@
 //
-//  OauthLoginController.swift
+//  LoginController.swift
 //  MakeVKGreatAgain
 //
 //  Created by n.perezhogin on 16.03.2020.
@@ -10,12 +10,16 @@ import UIKit
 import WebKit
 import Alamofire
 
-class OauthLoginController: UIViewController {
+
+class LoginController: UIViewController {
     
     @IBOutlet weak var webView: WKWebView!{
         didSet{
             webView.navigationDelegate = self
         }
+    }
+    @IBAction func loginButton(_ sender: Any) {
+        webView.isHidden = false
     }
     
     let baseUrl = "https://api.vk.com"
@@ -23,7 +27,7 @@ class OauthLoginController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "oauth.vk.com"
@@ -41,14 +45,14 @@ class OauthLoginController: UIViewController {
 
         webView.load(request)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
 }
 
-extension OauthLoginController: WKNavigationDelegate {
+extension LoginController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
         
         guard let url = navigationResponse.response.url, url.path == "/blank.html", let fragment = url.fragment  else {
@@ -74,10 +78,10 @@ extension OauthLoginController: WKNavigationDelegate {
         session.token = token ?? ""
         session.userId = Int(userId  ?? "0")!
 
-        loadFriendsData()
-        loadImagesData(session.userId)
-        loadGroupsData()
-        loadSearchGroupsData("GeekBrains")
+//        loadFriendsData()
+//        loadImagesData(session.userId)
+//        loadGroupsData()
+//        loadSearchGroupsData("GeekBrains")
         
         performSegue(withIdentifier: "goToNews", sender: nil)
         
@@ -154,3 +158,4 @@ extension OauthLoginController: WKNavigationDelegate {
     }
 
 }
+
