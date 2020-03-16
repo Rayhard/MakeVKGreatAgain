@@ -14,6 +14,7 @@ class SearchGroupController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(UINib(nibName: "GroupCell", bundle: nil), forCellReuseIdentifier: "GroupCell")
         searchBar.delegate = self as UISearchBarDelegate
         tableView.tableHeaderView = searchBar
         tableView.tableFooterView = UIView()
@@ -32,9 +33,9 @@ class SearchGroupController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellSearch", for: indexPath) as! SearchGroupCell
-        cell.searchGroupName.text = displayData[indexPath.row].name
-        cell.searchGroupImage.image = displayData[indexPath.row].photo
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! GroupCell
+        cell.groupName.text = displayData[indexPath.row].name
+        cell.groupImage.image = displayData[indexPath.row].photo
 
         return cell
     }
