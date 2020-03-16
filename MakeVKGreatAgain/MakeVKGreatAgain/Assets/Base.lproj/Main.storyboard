@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UnC-ME-5HK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OqT-w2-CyQ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -131,6 +131,75 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C4a-VC-efh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-81.159420289855078" y="535.71428571428567"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="CsI-Yf-Udu">
+            <objects>
+                <viewController id="OqT-w2-CyQ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pyq-7C-zht">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFW-Lq-hH1">
+                                <rect key="frame" x="30" y="418" width="354" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="GKG-70-qgg"/>
+                                </constraints>
+                                <state key="normal" title="Войти"/>
+                                <connections>
+                                    <segue destination="XzI-O6-3B2" kind="show" id="oTr-FW-KNy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="dFW-Lq-hH1" firstAttribute="centerY" secondItem="Pyq-7C-zht" secondAttribute="centerY" id="2SN-vj-RfY"/>
+                            <constraint firstItem="W5l-Rl-aDO" firstAttribute="trailing" secondItem="dFW-Lq-hH1" secondAttribute="trailing" constant="30" id="Hv7-uE-gn0"/>
+                            <constraint firstItem="dFW-Lq-hH1" firstAttribute="leading" secondItem="W5l-Rl-aDO" secondAttribute="leading" constant="30" id="LIG-qO-cWG"/>
+                            <constraint firstItem="dFW-Lq-hH1" firstAttribute="centerX" secondItem="Pyq-7C-zht" secondAttribute="centerX" id="qzE-Lc-Tly"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="W5l-Rl-aDO"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P4n-F4-0DL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-949" y="1231"/>
+        </scene>
+        <!--Oauth Login Controller-->
+        <scene sceneID="Tmr-yl-by6">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="XzI-O6-3B2" customClass="OauthLoginController" customModule="MakeVKGreatAgain" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eUW-9g-hQS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdB-kF-45U">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="cdB-kF-45U" firstAttribute="leading" secondItem="eUW-9g-hQS" secondAttribute="leading" id="C22-nG-mKx"/>
+                            <constraint firstItem="cdB-kF-45U" firstAttribute="top" secondItem="UFy-fe-L0m" secondAttribute="top" id="CVj-up-zMi"/>
+                            <constraint firstItem="cdB-kF-45U" firstAttribute="bottom" secondItem="UFy-fe-L0m" secondAttribute="bottom" id="OY9-Qw-ovd"/>
+                            <constraint firstAttribute="trailing" secondItem="cdB-kF-45U" secondAttribute="trailing" id="Te6-BT-Bst"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UFy-fe-L0m"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vsP-0E-8kW"/>
+                    <connections>
+                        <outlet property="webView" destination="cdB-kF-45U" id="rNG-89-7RT"/>
+                        <segue destination="3XG-Fh-oYC" kind="show" identifier="goToNews" id="U5u-z7-jyb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pWm-Tx-FLz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-81.159420289855078" y="1230.8035714285713"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="geJ-fh-cSc">
@@ -820,4 +889,7 @@
         <image name="person.3" catalog="system" width="72" height="35"/>
         <image name="rectangle.on.rectangle.angled" catalog="system" width="64" height="50"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="U5u-z7-jyb"/>
+    </inferredMetricsTieBreakers>
 </document>
