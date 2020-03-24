@@ -34,6 +34,7 @@ class FriendsController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(UINib(nibName: "UserCell", bundle: nil), forCellReuseIdentifier: "UserCell")
         searchBar.delegate = self as UISearchBarDelegate
         tableView.tableHeaderView = searchBar
         tableView.tableFooterView = UIView()
@@ -59,20 +60,24 @@ class FriendsController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! FriendCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserCell
         if isSearchActive{
             let name = displayData[indexPath.row].name
             let image = displayData[indexPath.row].photo
-            cell.friendName.text = name
-            cell.friendImage.image = image
+            cell.userName.text = name
+            cell.userImage.image = image
         } else {
             let name = sections[indexPath.section][indexPath.row].name
             let image = sections[indexPath.section][indexPath.row].photo
-            cell.friendName.text = name
-            cell.friendImage.image = image
+            cell.userName.text = name
+            cell.userImage.image = image
         }
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "goToFriendImages", sender: self)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
