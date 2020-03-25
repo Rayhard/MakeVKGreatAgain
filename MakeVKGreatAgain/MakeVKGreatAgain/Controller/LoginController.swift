@@ -77,84 +77,10 @@ extension LoginController: WKNavigationDelegate {
         let session = Session.instance
         session.token = token ?? ""
         session.userId = Int(userId  ?? "0")!
-
-//        loadFriendsData()
-//        loadImagesData(session.userId)
-//        loadGroupsData()
-//        loadSearchGroupsData("GeekBrains")
         
         performSegue(withIdentifier: "goToNews", sender: nil)
         
         decisionHandler(.cancel)
-    }
-    
-    // Пока сделал все запросы тут, в дальнейшем разнесу по нужным местам
-    func loadFriendsData(){
-        let session = Session.instance
-        let path = "/method/friends.get"
-        let parameters: Parameters = [
-            "access_token": session.token,
-            "v": apiVersion
-        ]
-
-        let url = baseUrl+path
-
-        AF.request(url, method: .get, parameters: parameters).responseJSON { repsonse in
-            print(repsonse.value)
-        }
-        
-    }
-    
-    func loadImagesData(_ owner: Int){
-        let session = Session.instance
-        let path = "/method/photos.get"
-        let parameters: Parameters = [
-            "owner_id": owner,
-            "album_id": "profile",
-            "access_token": session.token,
-            "v": apiVersion
-        ]
-
-        let url = baseUrl+path
-
-        AF.request(url, method: .get, parameters: parameters).responseJSON { repsonse in
-            print(repsonse.value)
-        }
-        
-    }
-    
-    func loadGroupsData(){
-        let session = Session.instance
-        let path = "/method/groups.get"
-        let parameters: Parameters = [
-            "user_id": session.userId,
-            "access_token": session.token,
-            "v": apiVersion
-        ]
-
-        let url = baseUrl+path
-
-        AF.request(url, method: .get, parameters: parameters).responseJSON { repsonse in
-            print(repsonse.value)
-        }
-        
-    }
-    
-    func loadSearchGroupsData(_ query: String){
-        let session = Session.instance
-        let path = "/method/groups.search"
-        let parameters: Parameters = [
-            "q": query,
-            "access_token": session.token,
-            "v": apiVersion
-        ]
-
-        let url = baseUrl+path
-
-        AF.request(url, method: .get, parameters: parameters).responseJSON { repsonse in
-            print(repsonse.value)
-        }
-        
     }
 
 }

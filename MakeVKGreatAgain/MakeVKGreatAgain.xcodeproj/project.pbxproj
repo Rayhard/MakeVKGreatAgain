@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF20E98B242B3483001E9D5E /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DF20E98A242B3483001E9D5E /* RealmSwift */; };
+		DF20E98E242B3AC5001E9D5E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF20E98D242B3AC5001E9D5E /* WebKit.framework */; };
 		DF3E406523FD15E0003AB882 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF3E406423FD15E0003AB882 /* NewsCell.xib */; };
 		DF3E406723FD1643003AB882 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3E406623FD1643003AB882 /* NewsCell.swift */; };
 		DF3E406A23FD203B003AB882 /* NewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3E406923FD203B003AB882 /* NewsController.swift */; };
@@ -23,6 +25,8 @@
 		DFA9334D241FAE4400DBE6A4 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA9334C241FAE4400DBE6A4 /* GroupCell.swift */; };
 		DFA9334F241FC47E00DBE6A4 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFA9334E241FC47E00DBE6A4 /* UserCell.xib */; };
 		DFA93351241FC4BA00DBE6A4 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA93350241FC4BA00DBE6A4 /* UserCell.swift */; };
+		DFAB37AC2429DFA500740C51 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = DFAB37AB2429DFA500740C51 /* SwiftyJSON */; };
+		DFAB37AE2429E6B600740C51 /* GetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAB37AD2429E6B600740C51 /* GetData.swift */; };
 		DFAC200123F1429B00A1891A /* FriendImagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAC200023F1429B00A1891A /* FriendImagesCell.swift */; };
 		DFAD080E23F0164A0057964B /* FriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD080D23F0164A0057964B /* FriendsController.swift */; };
 		DFAD081423F017630057964B /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD081323F017630057964B /* DataModel.swift */; };
@@ -45,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DF20E98D242B3AC5001E9D5E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		DF3E406423FD15E0003AB882 /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		DF3E406623FD1643003AB882 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		DF3E406923FD203B003AB882 /* NewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsController.swift; sourceTree = "<group>"; };
@@ -60,6 +65,7 @@
 		DFA9334C241FAE4400DBE6A4 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		DFA9334E241FC47E00DBE6A4 /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		DFA93350241FC4BA00DBE6A4 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		DFAB37AD2429E6B600740C51 /* GetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetData.swift; sourceTree = "<group>"; };
 		DFAC200023F1429B00A1891A /* FriendImagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendImagesCell.swift; sourceTree = "<group>"; };
 		DFAD080D23F0164A0057964B /* FriendsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsController.swift; sourceTree = "<group>"; };
 		DFAD081323F017630057964B /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
@@ -88,6 +94,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF20E98B242B3483001E9D5E /* RealmSwift in Frameworks */,
+				DFAB37AC2429DFA500740C51 /* SwiftyJSON in Frameworks */,
+				DF20E98E242B3AC5001E9D5E /* WebKit.framework in Frameworks */,
 				DFA93343241F5BD400DBE6A4 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,6 +104,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DF20E98C242B3AC5001E9D5E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DF20E98D242B3AC5001E9D5E /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DF3E406823FD1656003AB882 /* CustomCellXib */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +165,7 @@
 			children = (
 				DFAD081323F017630057964B /* DataModel.swift */,
 				DF3E406B23FD2288003AB882 /* ContentData.swift */,
+				DFAB37AD2429E6B600740C51 /* GetData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -178,6 +196,7 @@
 			children = (
 				DFB4D22A23EDA61D0025359F /* MakeVKGreatAgain */,
 				DFB4D22923EDA61D0025359F /* Products */,
+				DF20E98C242B3AC5001E9D5E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -243,6 +262,8 @@
 			name = MakeVKGreatAgain;
 			packageProductDependencies = (
 				DFA93342241F5BD400DBE6A4 /* Alamofire */,
+				DFAB37AB2429DFA500740C51 /* SwiftyJSON */,
+				DF20E98A242B3483001E9D5E /* RealmSwift */,
 			);
 			productName = MakeVKGreatAgain;
 			productReference = DFB4D22823EDA61D0025359F /* MakeVKGreatAgain.app */;
@@ -274,6 +295,8 @@
 			mainGroup = DFB4D21F23EDA61D0025359F;
 			packageReferences = (
 				DFA93341241F5BD400DBE6A4 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				DFAB37AA2429DFA500740C51 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				DF20E989242B3483001E9D5E /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 			);
 			productRefGroup = DFB4D22923EDA61D0025359F /* Products */;
 			projectDirPath = "";
@@ -323,6 +346,7 @@
 				DFB50F2723F53F2B0086CAA2 /* ShadowView.swift in Sources */,
 				DFA93351241FC4BA00DBE6A4 /* UserCell.swift in Sources */,
 				DFB1766F240D153600D17CAB /* CustomInteractiveTransition.swift in Sources */,
+				DFAB37AE2429E6B600740C51 /* GetData.swift in Sources */,
 				DFAD877D2403AA7C00E03708 /* LoadingView.swift in Sources */,
 				DFA93347241F935A00DBE6A4 /* LoginController.swift in Sources */,
 				DFB1766B240D133C00D17CAB /* CustomPopAnimator.swift in Sources */,
@@ -532,6 +556,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DF20E989242B3483001E9D5E /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.3.2;
+			};
+		};
 		DFA93341241F5BD400DBE6A4 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -540,13 +572,31 @@
 				minimumVersion = 5.0.4;
 			};
 		};
+		DFAB37AA2429DFA500740C51 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DF20E98A242B3483001E9D5E /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF20E989242B3483001E9D5E /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
 		DFA93342241F5BD400DBE6A4 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DFA93341241F5BD400DBE6A4 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		DFAB37AB2429DFA500740C51 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DFAB37AA2429DFA500740C51 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

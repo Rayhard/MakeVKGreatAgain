@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct User {
+struct Useraaaa {
     let name: String
     let photo: UIImage?
     let images: [UIImage]
@@ -24,4 +24,22 @@ struct News {
     let author: Group
     let contentText: String
     let contentImage: UIImage?
+}
+
+struct User {
+    var id: Int = 0
+    var name: String = ""
+    var photo: String = ""
+}
+
+struct Groups {
+    var id: Int = 0
+    var name: String = ""
+    var photo: String = ""
+}
+
+class Photo {
+    var id: Int = 0
+    var ownerId: Int = 0
+    var imageUrl: String = ""
 }
