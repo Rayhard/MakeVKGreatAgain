@@ -131,7 +131,7 @@ class DataService: DataServiceProtocol{
             
             let result = array.map { item -> User in
                 
-                var user = User()
+                let user = User()
                 user.id = item["id"].intValue
                 user.name = item["first_name"].stringValue + " " + item["last_name"].stringValue
                 user.photo = item["photo_200_orig"].stringValue
@@ -154,7 +154,7 @@ class DataService: DataServiceProtocol{
             
             let result = array.map { item -> Groups in
             
-                var group = Groups()
+                let group = Groups()
                 
                 group.id = item["id"].intValue
                 group.name = item["name"].stringValue
