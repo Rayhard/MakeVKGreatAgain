@@ -12,28 +12,24 @@ class FriendsController: UITableViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     var displayData: [User] = []
-    var isSearchActive: Bool = false
+    var friendsArray: [User] = []
     
-    var names: [User]{
-        return friendsArray.sorted(by: {$0.name < $1.name})
-    }
-    lazy var sections: [[User]] = {
-        return names.reduce([[User]]()){ (result, element) -> [[User]] in
-            guard var last = result.last else {return [[element]]}
-            var collection = result
-            if element.name.first == result.last?.first?.name.first{
-                last.append(element)
-                collection[collection.count-1] = last
-            } else {
-                collection.append([element])
-            }
-            return collection
-            
-        }
-    }()
+    let getDataService: DataServiceProtocol = DataService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let apiParameters: [String : Any] = [
+            "fields" : "photo_200_orig",
+            "order" : "name",
+        ]
+        
+        getDataService.loadUsers(additionalParameters: apiParameters) { (users) in
+            self.friendsArray = users
+            self.displayData = self.friendsArray
+            self.tableView.reloadData()
+        }
+        
         tableView.register(UINib(nibName: "UserCell", bundle: nil), forCellReuseIdentifier: "UserCell")
         searchBar.delegate = self as UISearchBarDelegate
         tableView.tableHeaderView = searchBar
@@ -44,34 +40,20 @@ class FriendsController: UITableViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return isSearchActive ? 1 : sections.count
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return isSearchActive ? displayData.count : sections[section].count
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return isSearchActive ? "" : sections[section].first?.name.first?.uppercased()
-    }
-    
-    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return isSearchActive ? [] : Array(Set(names.compactMap{$0.name.first?.uppercased()})).sorted()
+        return displayData.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserCell
-        if isSearchActive{
-            let name = displayData[indexPath.row].name
-            let image = displayData[indexPath.row].photo
-            cell.userName.text = name
-            cell.userImage.image = image
-        } else {
-            let name = sections[indexPath.section][indexPath.row].name
-            let image = sections[indexPath.section][indexPath.row].photo
-            cell.userName.text = name
-            cell.userImage.image = image
-        }
+        
+        let name = displayData[indexPath.row].name
+        //let image = displayData[indexPath.row].photo
+        cell.userName.text = name
+        //cell.userImage.image = image
 
         return cell
     }
@@ -83,13 +65,8 @@ class FriendsController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToFriendImages"{
             if let indexPath = tableView.indexPathForSelectedRow {
-                if isSearchActive{
-                    (segue.destination as? FriendsImagesController)?.friend = displayData[indexPath.row]
-                    tableView.deselectRow(at: indexPath, animated: true)
-                } else {
-                    (segue.destination as? FriendsImagesController)?.friend = sections[indexPath.section][indexPath.row]
-                    tableView.deselectRow(at: indexPath, animated: true)
-                }
+                (segue.destination as? FriendsImagesController)?.friend = displayData[indexPath.row]
+                tableView.deselectRow(at: indexPath, animated: true)
             }
         }
     }
@@ -98,13 +75,11 @@ class FriendsController: UITableViewController {
 extension FriendsController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard !searchText.isEmpty else {
-            isSearchActive = false
             displayData = friendsArray
             tableView.reloadData()
             return
         }
         displayData = friendsArray.filter { $0.name.range(of: searchText, options: .caseInsensitive) != nil }
-        isSearchActive = true
         tableView.reloadData()
     }
     
@@ -112,8 +87,7 @@ extension FriendsController: UISearchBarDelegate{
         self.searchBar.endEditing(true)
     }
 
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
-    {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.searchBar.endEditing(true)
     }
 }

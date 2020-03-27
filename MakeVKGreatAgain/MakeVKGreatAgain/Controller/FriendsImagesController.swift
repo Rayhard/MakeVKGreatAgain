@@ -9,11 +9,23 @@
 import UIKit
 
 class FriendsImagesController: UICollectionViewController {
+    let getDataService: DataServiceProtocol = DataService()
     
     var friend: User!
+    var profilePhoto: [Photo] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let parameters: [String : Any] = [
+            "owner_id" :  friend.id,
+            "album_id" : "profile",
+        ]
+
+        
+        getDataService.loadPhotos(additionalParameters: parameters) { (photo) in
+            self.profilePhoto = photo
+            self.collectionView.reloadData()
+        }
     }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -22,23 +34,23 @@ class FriendsImagesController: UICollectionViewController {
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return friend.images.count > 4 ? 4 : friend.images.count
+        return 4
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! FriendImagesCell
 
-        cell.friendImageView.image = friend.images[indexPath.row]
+        //cell.friendImageView.image = friend.images[indexPath.row]
 
         return cell
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToFullScreenImages"{
-            if let indexPath = collectionView.indexPathsForSelectedItems{
-                (segue.destination as? AllFriendsImagesController)?.friendImagesArray = friend.images
-                collectionView.deselectItem(at: indexPath[0], animated: true)
-            }
+//            if let indexPath = collectionView.indexPathsForSelectedItems{
+//                (segue.destination as? AllFriendsImagesController)?.friendImagesArray = friend.images
+//                collectionView.deselectItem(at: indexPath[0], animated: true)
+//            }
         }
     }
 }
@@ -52,7 +64,7 @@ extension FriendsImagesController {
                 .dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
                                                   withReuseIdentifier: "CellHeader",
                                                   for: indexPath) as! HeaderFriendImagesView
-            view.friendAvatarImage.image = friend.images[0]
+            //view.friendAvatarImage.image = friend.images[0]
             view.friendName.text = friend.name
             return view
         } else {
