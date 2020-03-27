@@ -8,13 +8,6 @@
 
 import UIKit
 
-struct Useraaaa {
-    let name: String
-    let photo: UIImage?
-    let images: [UIImage]
-    
-}
-
 struct Group {
     let name: String
     let photo: UIImage?

@@ -27,12 +27,24 @@ private enum apiMethods: String {
 
 protocol DataServiceProtocol {
     func loadUsers(additionalParameters: [String : Any], completion: @escaping ([User]) -> Void)
-    func loadGroups(additionalParameters: [String : Any], completion: @escaping ([Group]) -> Void)
+    func loadGroups(additionalParameters: [String : Any], completion: @escaping ([Groups]) -> Void)
+    func loadSearchGroups(additionalParameters: [String : Any], completion: @escaping ([Groups]) -> Void)
     func loadPhotos(additionalParameters: [String : Any], completion: @escaping ([Photo]) -> Void)
-//    func getImageByURL(imageUrl: String) -> UIImage?
+    func getImageByURL(imageUrl: String) -> UIImage?
 }
 
 class DataService: DataServiceProtocol{
+    func getImageByURL(imageUrl: String) -> UIImage? {
+        let urlString = imageUrl
+        guard let url = URL(string: urlString) else { return nil }
+        
+        if let imageData: Data = try? Data(contentsOf: url) {
+            return UIImage(data: imageData)
+        }
+        
+        return nil
+    }
+    
     func loadUsers(additionalParameters: [String : Any], completion: @escaping ([User]) -> Void) {
         additionalParameters.forEach { (k,v) in parameters[k] = v }
         
@@ -52,12 +64,64 @@ class DataService: DataServiceProtocol{
         }
     }
     
-    func loadGroups(additionalParameters: [String : Any], completion: @escaping ([Group]) -> Void) {
-        //
+    func loadGroups(additionalParameters: [String : Any], completion: @escaping ([Groups]) -> Void) {
+
+        additionalParameters.forEach { (k,v) in parameters[k] = v }
+        
+        let url = baseUrl + apiMethods.groups.rawValue
+        
+        AF.request(url, parameters: parameters).responseJSON { [completion] (response) in
+            if let error = response.error {
+                print(error)
+            } else {
+                guard let data = response.data else { return }
+                
+                let groups: [Groups] = self.parseGroups(data: data)
+                
+                completion(groups)
+            }
+            
+        }
+    }
+    
+    func loadSearchGroups(additionalParameters: [String : Any], completion: @escaping ([Groups]) -> Void) {
+        
+        additionalParameters.forEach { (k,v) in parameters[k] = v }
+        
+        let url = baseUrl + apiMethods.groupsSearch.rawValue
+        
+        AF.request(url, parameters: parameters).responseJSON { [completion] (response) in
+            if let error = response.error {
+                print(error)
+            } else {
+                guard let data = response.data else { return }
+                
+                let groups: [Groups] = self.parseGroups(data: data)
+                
+                completion(groups)
+            }
+            
+        }
     }
     
     func loadPhotos(additionalParameters: [String : Any], completion: @escaping ([Photo]) -> Void) {
-        //
+        
+        additionalParameters.forEach { (k,v) in parameters[k] = v }
+        
+        let url = baseUrl + apiMethods.photos.rawValue
+        
+        AF.request(url, parameters: parameters).responseJSON { [completion] (response) in
+            if let error = response.error {
+                print(error)
+            } else {
+                guard let data = response.data else { return }
+                
+                let photos: [Photo] = self.parsePhotos(data: data)
+                
+                completion(photos)
+            }
+            
+        }
     }
     
     private func parseUsers(data: Data) -> [User] {
@@ -83,4 +147,54 @@ class DataService: DataServiceProtocol{
         }
     }
     
+    private func parseGroups(data: Data) -> [Groups] {
+        do {
+            let json = try JSON(data: data)
+            let array = json["response"]["items"].arrayValue
+            
+            let result = array.map { item -> Groups in
+            
+                var group = Groups()
+                
+                group.id = item["id"].intValue
+                group.name = item["name"].stringValue
+                group.photo = item["photo_200"].stringValue
+                
+                return group
+            }
+            
+            return result
+            
+        } catch {
+            print(error.localizedDescription)
+            return []
+        }
+    }
+    
+    private func parsePhotos(data: Data) -> [Photo] {
+        do {
+            let json = try JSON(data: data)
+            let array = json["response"]["items"].arrayValue
+            
+            let result = array.map { item -> Photo in
+                
+                let photo = Photo()
+                photo.id = item["id"].intValue
+                photo.ownerId = item["owner_id"].intValue
+                
+                let sizeValues = item["sizes"].arrayValue
+                if let first = sizeValues.first(where: { $0["type"].stringValue == "z" }) {
+                    photo.imageUrl = first["url"].stringValue
+                }
+                
+                return photo
+            }
+            
+            return result
+            
+        } catch {
+            print(error.localizedDescription)
+            return []
+        }
+    }
 }

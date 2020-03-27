@@ -10,7 +10,10 @@ import UIKit
 
 class UserGroupController: UITableViewController {
     @IBOutlet weak var searchBar: UISearchBar!
-    var displayData: [Group] = []
+    var displayData: [Groups] = []
+    var userGroup: [Groups] = []
+    
+    let getDataService: DataServiceProtocol = DataService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +23,12 @@ class UserGroupController: UITableViewController {
         tableView.tableFooterView = UIView()
         tableView.keyboardDismissMode = .onDrag
         
-        displayData = userGroupArray
-        NotificationCenter.default.addObserver(self, selector: #selector(self.refresh), name: NSNotification.Name(rawValue: "newDataNotif"), object: nil)
-    }
-    
-     @objc func refresh() {
-        self.tableView.reloadData()
+        getDataService.loadGroups(additionalParameters: ["extended": 1]) { (groups) in
+            self.displayData = groups
+            self.userGroup = groups
+            self.tableView.reloadData()
+        }
+
     }
 
     // MARK: - Table view data source
@@ -41,13 +44,11 @@ class UserGroupController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! GroupCell
         cell.groupName.text = displayData[indexPath.row].name
-        cell.groupImage.image = displayData[indexPath.row].photo
         return cell
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            searchGroupArray.append(displayData[indexPath.row])
             displayData.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
@@ -58,11 +59,11 @@ class UserGroupController: UITableViewController {
 extension UserGroupController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard !searchText.isEmpty else {
-            displayData = userGroupArray
+            displayData = userGroup
             tableView.reloadData()
             return
         }
-        displayData = userGroupArray.filter { $0.name.range(of: searchText, options: .caseInsensitive) != nil }
+        displayData = userGroup.filter { $0.name.range(of: searchText, options: .caseInsensitive) != nil }
         tableView.reloadData()
     }
     

@@ -10,7 +10,10 @@ import UIKit
 
 class SearchGroupController: UITableViewController {
     @IBOutlet weak var searchBar: UISearchBar!
-    var displayData: [Group] = []
+    
+    let getDataService: DataServiceProtocol = DataService()
+    var displayData: [Groups] = []
+    var searchGroup: [Groups] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +22,6 @@ class SearchGroupController: UITableViewController {
         tableView.tableHeaderView = searchBar
         tableView.tableFooterView = UIView()
         tableView.keyboardDismissMode = .onDrag
-        displayData = searchGroupArray
     }
 
     // MARK: - Table view data source
@@ -35,7 +37,6 @@ class SearchGroupController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! GroupCell
         cell.groupName.text = displayData[indexPath.row].name
-        cell.groupImage.image = displayData[indexPath.row].photo
 
         return cell
     }
@@ -43,7 +44,6 @@ class SearchGroupController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        userGroupArray.append(displayData[indexPath.row])
         displayData.remove(at: indexPath.row)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "newDataNotif"), object: nil)
         tableView.deleteRows(at: [indexPath], with: .fade)
@@ -54,12 +54,15 @@ class SearchGroupController: UITableViewController {
 extension SearchGroupController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard !searchText.isEmpty else {
-            displayData = searchGroupArray
+            displayData = searchGroup
             tableView.reloadData()
             return
         }
-        displayData = searchGroupArray.filter { $0.name.range(of: searchText, options: .caseInsensitive) != nil }
-        tableView.reloadData()
+        
+        getDataService.loadSearchGroups(additionalParameters: ["q": searchText]) { (groups) in
+            self.displayData = groups
+            self.tableView.reloadData()
+        }
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

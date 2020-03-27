@@ -9,11 +9,23 @@
 import UIKit
 
 class FriendsImagesController: UICollectionViewController {
+    let getDataService: DataServiceProtocol = DataService()
     
     var friend: User!
+    var profilePhoto: [Photo] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let parameters: [String : Any] = [
+            "owner_id" :  friend.id,
+            "album_id" : "profile",
+        ]
+
+        
+        getDataService.loadPhotos(additionalParameters: parameters) { (photo) in
+            self.profilePhoto = photo
+            self.collectionView.reloadData()
+        }
     }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -22,7 +34,7 @@ class FriendsImagesController: UICollectionViewController {
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4//friend.images.count > 4 ? 4 : friend.images.count
+        return 4
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
