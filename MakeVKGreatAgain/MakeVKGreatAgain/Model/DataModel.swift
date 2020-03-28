@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 struct Group {
     let name: String
@@ -19,20 +20,20 @@ struct News {
     let contentImage: UIImage?
 }
 
-struct User {
-    var id: Int = 0
-    var name: String = ""
-    var photo: String = ""
+class User: Object{
+    @objc dynamic var id: Int = 0
+    @objc dynamic var name: String = ""
+    @objc dynamic var photo: String = ""
 }
 
-struct Groups {
-    var id: Int = 0
-    var name: String = ""
-    var photo: String = ""
+class Groups: Object {
+    @objc dynamic var id: Int = 0
+    @objc dynamic var name: String = ""
+    @objc dynamic var photo: String = ""
 }
 
-class Photo {
-    var id: Int = 0
-    var ownerId: Int = 0
-    var imageUrl: String = ""
+class Photo: Object {
+    @objc dynamic var id: Int = 0
+    @objc dynamic var ownerId: Int = 0
+    @objc dynamic var imageUrl: String = ""
 }
