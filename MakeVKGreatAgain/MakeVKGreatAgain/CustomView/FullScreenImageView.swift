@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import Kingfisher
 
 class FullScreenImageView: UIImageView {
-    var imageArray: [UIImage] = []
+    var imageArray: [Photo] = []
     var focusImage = 0
+    
+    let cache = ImageCache.default
     
     private enum Direction{
         case left, right
@@ -40,7 +43,10 @@ class FullScreenImageView: UIImageView {
                 superview?.addSubview(tmpImage)
                 self.transform = CGAffineTransform(scaleX: 0.25, y: 0.25)
                 self.focusImage -= 1
-                self.image = self.imageArray[self.focusImage]
+                
+                self.getImage(sourceImage: self, focus: self.focusImage)
+                
+                //self.image = self.imageArray[self.focusImage]
                 
                 UIView.animateKeyframes(withDuration: 1,
                                         delay: 0,
@@ -77,7 +83,10 @@ class FullScreenImageView: UIImageView {
                                             }
                 }) { _ in
                     self.focusImage += 1
-                    self.image = self.imageArray[self.focusImage]
+                    
+                    self.getImage(sourceImage: self, focus: self.focusImage)
+                    
+                    //self.image = self.imageArray[self.focusImage]
                     self.transform = CGAffineTransform(scaleX: 1, y: 1)
                     tmpImage.removeFromSuperview()
                 }
@@ -90,14 +99,29 @@ class FullScreenImageView: UIImageView {
     private func newImageView(_ tmpX: CGFloat, direction: Direction) -> UIImageView{
         let tmpImage = UIImageView()
         if direction == .left{
-            tmpImage.image = imageArray[focusImage + 1]
+            getImage(sourceImage: tmpImage, focus: focusImage + 1)
+            
+            //tmpImage.image = imageArray[focusImage + 1]
             tmpImage.frame = CGRect(x: tmpX, y: self.frame.minY, width: self.frame.width, height: self.frame.height)
         } else {
-            tmpImage.image = imageArray[focusImage]
+            getImage(sourceImage: tmpImage, focus: focusImage)
+            //tmpImage.image = imageArray[focusImage]
             tmpImage.frame = CGRect(x: tmpX, y: self.frame.minY, width: self.frame.width, height: self.frame.height)
         }
         tmpImage.contentMode = .scaleAspectFit
         return tmpImage
+    }
+    
+    private func getImage(sourceImage: UIImageView, focus: Int){
+        cache.retrieveImage(forKey: self.imageArray[focus].imageUrl) { result in
+            switch result {
+            case .success(let value):
+                sourceImage.image = value.image
+
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 
 }

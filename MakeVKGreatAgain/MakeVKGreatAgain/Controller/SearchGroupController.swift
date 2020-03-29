@@ -49,11 +49,6 @@ class SearchGroupController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        displayData.remove(at: indexPath.row)
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "newDataNotif"), object: nil)
-        tableView.deleteRows(at: [indexPath], with: .fade)
     }
 
 }

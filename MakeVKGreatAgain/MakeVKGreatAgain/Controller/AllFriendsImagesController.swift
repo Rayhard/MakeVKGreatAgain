@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import Kingfisher
 
 class AllFriendsImagesController: UIViewController {
     var friendImagesArray: [Photo] = []
+    
+    let cache = ImageCache.default
     
     @IBOutlet weak var friendImageView: FullScreenImageView!
     
@@ -20,8 +23,18 @@ class AllFriendsImagesController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        friendImageView.image = friendImagesArray[0]
-//        friendImageView.imageArray = friendImagesArray
+        
+        cache.retrieveImage(forKey: friendImagesArray[0].imageUrl) { result in
+            switch result {
+            case .success(let value):
+                self.friendImageView.image = value.image
+
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        friendImageView.imageArray = friendImagesArray
     }
 
 }
