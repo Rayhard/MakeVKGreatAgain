@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class FriendsController: UITableViewController {
     
@@ -21,7 +22,7 @@ class FriendsController: UITableViewController {
         
         let apiParameters: [String : Any] = [
             "fields" : "photo_200_orig",
-            "order" : "name",
+            "order" : "hints",
         ]
         
         getDataService.loadUsers(additionalParameters: apiParameters) { (users) in
@@ -51,9 +52,13 @@ class FriendsController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserCell
         
         let name = displayData[indexPath.row].name
-        //let image = displayData[indexPath.row].photo
         cell.userName.text = name
-        //cell.userImage.image = image
+        
+        if let url = URL(string: displayData[indexPath.row].photo){
+            cell.userImage.kf.indicatorType = .activity
+            let resource = ImageResource(downloadURL: url, cacheKey: displayData[indexPath.row].photo)
+            cell.userImage.kf.setImage(with: resource)
+        }
 
         return cell
     }

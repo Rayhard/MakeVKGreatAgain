@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF129760243070AE00693AE4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DF12975F243070AE00693AE4 /* Kingfisher */; };
 		DF20E98B242B3483001E9D5E /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DF20E98A242B3483001E9D5E /* RealmSwift */; };
 		DF20E98E242B3AC5001E9D5E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF20E98D242B3AC5001E9D5E /* WebKit.framework */; };
 		DF3E406523FD15E0003AB882 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF3E406423FD15E0003AB882 /* NewsCell.xib */; };
@@ -98,6 +99,7 @@
 				DFAB37AC2429DFA500740C51 /* SwiftyJSON in Frameworks */,
 				DF20E98E242B3AC5001E9D5E /* WebKit.framework in Frameworks */,
 				DFA93343241F5BD400DBE6A4 /* Alamofire in Frameworks */,
+				DF129760243070AE00693AE4 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +266,7 @@
 				DFA93342241F5BD400DBE6A4 /* Alamofire */,
 				DFAB37AB2429DFA500740C51 /* SwiftyJSON */,
 				DF20E98A242B3483001E9D5E /* RealmSwift */,
+				DF12975F243070AE00693AE4 /* Kingfisher */,
 			);
 			productName = MakeVKGreatAgain;
 			productReference = DFB4D22823EDA61D0025359F /* MakeVKGreatAgain.app */;
@@ -297,6 +300,7 @@
 				DFA93341241F5BD400DBE6A4 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				DFAB37AA2429DFA500740C51 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				DF20E989242B3483001E9D5E /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				DF12975E243070AE00693AE4 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = DFB4D22923EDA61D0025359F /* Products */;
 			projectDirPath = "";
@@ -556,6 +560,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DF12975E243070AE00693AE4 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.13.2;
+			};
+		};
 		DF20E989242B3483001E9D5E /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-cocoa";
@@ -583,6 +595,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DF12975F243070AE00693AE4 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF12975E243070AE00693AE4 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		DF20E98A242B3483001E9D5E /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DF20E989242B3483001E9D5E /* XCRemoteSwiftPackageReference "realm-cocoa" */;

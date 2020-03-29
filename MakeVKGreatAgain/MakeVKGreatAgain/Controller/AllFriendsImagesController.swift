@@ -9,7 +9,7 @@
 import UIKit
 
 class AllFriendsImagesController: UIViewController {
-    var friendImagesArray: [UIImage] = []
+    var friendImagesArray: [Photo] = []
     
     @IBOutlet weak var friendImageView: FullScreenImageView!
     
@@ -20,8 +20,8 @@ class AllFriendsImagesController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        friendImageView.image = friendImagesArray[0]
-        friendImageView.imageArray = friendImagesArray
+//        friendImageView.image = friendImagesArray[0]
+//        friendImageView.imageArray = friendImagesArray
     }
 
 }
