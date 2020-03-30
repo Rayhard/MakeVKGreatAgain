@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import RealmSwift
 
 private let baseUrl = "https://api.vk.com/method/"
 private let apiKey = Session.instance.token
@@ -30,21 +31,9 @@ protocol DataServiceProtocol {
     func loadGroups(additionalParameters: [String : Any], completion: @escaping ([Groups]) -> Void)
     func loadSearchGroups(additionalParameters: [String : Any], completion: @escaping ([Groups]) -> Void)
     func loadPhotos(additionalParameters: [String : Any], completion: @escaping ([Photo]) -> Void)
-    func getImageByURL(imageUrl: String) -> UIImage?
 }
 
 class DataService: DataServiceProtocol{
-    func getImageByURL(imageUrl: String) -> UIImage? {
-        let urlString = imageUrl
-        guard let url = URL(string: urlString) else { return nil }
-        
-        if let imageData: Data = try? Data(contentsOf: url) {
-            return UIImage(data: imageData)
-        }
-        
-        return nil
-    }
-    
     func loadUsers(additionalParameters: [String : Any], completion: @escaping ([User]) -> Void) {
         additionalParameters.forEach { (k,v) in parameters[k] = v }
         
@@ -57,6 +46,8 @@ class DataService: DataServiceProtocol{
                 guard let data = response.data else { return }
                 
                 let users: [User] = self.parseUsers(data: data)
+                
+                self.saveData(data: users)
                 
                 completion(users)
             }
@@ -77,6 +68,8 @@ class DataService: DataServiceProtocol{
                 guard let data = response.data else { return }
                 
                 let groups: [Groups] = self.parseGroups(data: data)
+                
+                self.saveData(data: groups)
                 
                 completion(groups)
             }
@@ -117,6 +110,8 @@ class DataService: DataServiceProtocol{
                 guard let data = response.data else { return }
                 
                 let photos: [Photo] = self.parsePhotos(data: data)
+                
+                self.saveData(data: photos)
                 
                 completion(photos)
             }
@@ -196,5 +191,22 @@ class DataService: DataServiceProtocol{
             print(error.localizedDescription)
             return []
         }
+    }
+    
+    private func saveData(data: [Object]){
+        do {
+            let realm = try Realm()
+            print(realm.configuration.fileURL)
+            let oldData = realm.objects(type(of: data[0]))
+            
+            realm.beginWrite()
+            realm.delete(oldData)
+            realm.add(data)
+            try realm.commitWrite()
+            
+        } catch {
+            print(error)
+        }
+
     }
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import RealmSwift
 
 class FriendsController: UITableViewController {
     
@@ -26,8 +27,17 @@ class FriendsController: UITableViewController {
         ]
         
         getDataService.loadUsers(additionalParameters: apiParameters) { (users) in
-            self.friendsArray = users
-            self.displayData = self.friendsArray
+            
+            do {
+                let realm = try Realm()
+                let userRealm = realm.objects(User.self)
+                self.friendsArray = Array(userRealm)
+                self.displayData = self.friendsArray
+                
+            } catch {
+                print(error)
+            }
+            
             self.tableView.reloadData()
         }
         
