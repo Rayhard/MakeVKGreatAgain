@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class SearchGroupController: UITableViewController {
     @IBOutlet weak var searchBar: UISearchBar!
@@ -37,16 +38,17 @@ class SearchGroupController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! GroupCell
         cell.groupName.text = displayData[indexPath.row].name
+        
+        if let url = URL(string: displayData[indexPath.row].photo){
+            cell.groupImage.kf.indicatorType = .activity
+            let resource = ImageResource(downloadURL: url, cacheKey: displayData[indexPath.row].photo)
+            cell.groupImage.kf.setImage(with: resource)
+        }
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        displayData.remove(at: indexPath.row)
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "newDataNotif"), object: nil)
-        tableView.deleteRows(at: [indexPath], with: .fade)
     }
 
 }

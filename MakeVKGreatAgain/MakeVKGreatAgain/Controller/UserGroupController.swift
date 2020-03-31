@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class UserGroupController: UITableViewController {
     @IBOutlet weak var searchBar: UISearchBar!
@@ -44,14 +45,14 @@ class UserGroupController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! GroupCell
         cell.groupName.text = displayData[indexPath.row].name
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            displayData.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+        
+        if let url = URL(string: displayData[indexPath.row].photo){
+            cell.groupImage.kf.indicatorType = .activity
+            let resource = ImageResource(downloadURL: url, cacheKey: displayData[indexPath.row].photo)
+            cell.groupImage.kf.setImage(with: resource)
         }
+        
+        return cell
     }
 
 }
