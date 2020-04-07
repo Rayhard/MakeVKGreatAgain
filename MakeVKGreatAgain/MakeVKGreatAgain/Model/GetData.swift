@@ -195,13 +195,12 @@ class DataService: DataServiceProtocol{
     
     private func saveData(data: [Object]){
         do {
+            Realm.Configuration.defaultConfiguration = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
             let realm = try Realm()
             print(realm.configuration.fileURL)
-            let oldData = realm.objects(type(of: data[0]))
             
             realm.beginWrite()
-            realm.delete(oldData)
-            realm.add(data)
+            realm.add(data, update: .modified)
             try realm.commitWrite()
             
         } catch {

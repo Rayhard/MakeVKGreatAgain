@@ -16,6 +16,10 @@ class FriendsController: UITableViewController {
     var displayData: [User] = []
     var friendsArray: [User] = []
     
+    
+    var users: Results<User>?
+    var token: NotificationToken?
+    
     let getDataService: DataServiceProtocol = DataService()
 
     override func viewDidLoad() {
@@ -30,15 +34,32 @@ class FriendsController: UITableViewController {
             
             do {
                 let realm = try Realm()
-                let userRealm = realm.objects(User.self)
-                self.friendsArray = Array(userRealm)
-                self.displayData = self.friendsArray
+                self.users = realm.objects(User.self)
+                self.token = self.users?.observe { [weak self] (changes: RealmCollectionChange) in
+                    switch changes {
+                    case .initial:
+                        self?.tableView.reloadData()
+                        
+                    case .update(_, let deletions, let insertions, let modifications):
+                        self?.tableView.beginUpdates()
+                        self?.tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
+                                                   with: .automatic)
+                        self?.tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}),
+                                                   with: .automatic)
+                        self?.tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }),
+                                                   with: .automatic)
+                        self?.tableView.endUpdates()
+                        
+                    case .error(let error):
+                        print(error.localizedDescription)
+                        
+                    }
+                }
+                self.tableView.reloadData()
                 
             } catch {
-                print(error)
+                print(error.localizedDescription)
             }
-            
-            self.tableView.reloadData()
         }
         
         tableView.register(UINib(nibName: "UserCell", bundle: nil), forCellReuseIdentifier: "UserCell")
@@ -55,18 +76,19 @@ class FriendsController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return displayData.count
+        return users?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserCell
         
-        let name = displayData[indexPath.row].name
-        cell.userName.text = name
+        let user = users?[indexPath.row]
         
-        if let url = URL(string: displayData[indexPath.row].photo){
+        cell.userName.text = user?.name
+        
+        if let url = URL(string: user?.photo ?? ""){
             cell.userImage.kf.indicatorType = .activity
-            let resource = ImageResource(downloadURL: url, cacheKey: displayData[indexPath.row].photo)
+            let resource = ImageResource(downloadURL: url, cacheKey: user?.photo ?? "")
             cell.userImage.kf.setImage(with: resource)
         }
 
@@ -80,7 +102,7 @@ class FriendsController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToFriendImages"{
             if let indexPath = tableView.indexPathForSelectedRow {
-                (segue.destination as? FriendsImagesController)?.friend = displayData[indexPath.row]
+                (segue.destination as? FriendsImagesController)?.friend = users?[indexPath.row]
                 tableView.deselectRow(at: indexPath, animated: true)
             }
         }

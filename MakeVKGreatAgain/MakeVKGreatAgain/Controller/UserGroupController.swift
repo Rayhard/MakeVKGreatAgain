@@ -15,6 +15,9 @@ class UserGroupController: UITableViewController {
     var displayData: [Groups] = []
     var userGroup: [Groups] = []
     
+    var groups: Results<Groups>?
+    var token: NotificationToken?
+    
     let getDataService: DataServiceProtocol = DataService()
     
     override func viewDidLoad() {
@@ -26,18 +29,34 @@ class UserGroupController: UITableViewController {
         tableView.keyboardDismissMode = .onDrag
         
         getDataService.loadGroups(additionalParameters: ["extended": 1]) { (groups) in
-            
             do {
                 let realm = try Realm()
-                let groupRealm = realm.objects(Groups.self)
-                self.displayData = Array(groupRealm)
-                self.userGroup = self.displayData
+                self.groups = realm.objects(Groups.self)
+                self.token = self.groups?.observe { [weak self] (changes: RealmCollectionChange) in
+                    switch changes {
+                    case .initial:
+                        self?.tableView.reloadData()
+                        
+                    case .update(_, let deletions, let insertions, let modifications):
+                        self?.tableView.beginUpdates()
+                        self?.tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
+                                                   with: .automatic)
+                        self?.tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}),
+                                                   with: .automatic)
+                        self?.tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }),
+                                                   with: .automatic)
+                        self?.tableView.endUpdates()
+                        
+                    case .error(let error):
+                        print(error.localizedDescription)
+                        
+                    }
+                }
+                self.tableView.reloadData()
                 
             } catch {
-                print(error)
+                print(error.localizedDescription)
             }
-            
-            self.tableView.reloadData()
         }
 
     }
@@ -49,16 +68,17 @@ class UserGroupController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return displayData.count
+        return groups?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! GroupCell
-        cell.groupName.text = displayData[indexPath.row].name
+        let group = groups?[indexPath.row]
+        cell.groupName.text = group?.name
         
-        if let url = URL(string: displayData[indexPath.row].photo){
+        if let url = URL(string: group?.photo ?? ""){
             cell.groupImage.kf.indicatorType = .activity
-            let resource = ImageResource(downloadURL: url, cacheKey: displayData[indexPath.row].photo)
+            let resource = ImageResource(downloadURL: url, cacheKey: group?.photo ?? "")
             cell.groupImage.kf.setImage(with: resource)
         }
         
