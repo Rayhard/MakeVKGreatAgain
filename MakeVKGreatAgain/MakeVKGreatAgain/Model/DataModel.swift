@@ -24,12 +24,20 @@ class User: Object{
     @objc dynamic var id: Int = 0
     @objc dynamic var name: String = ""
     @objc dynamic var photo: String = ""
+    
+    override class func primaryKey() -> String? {
+        return "id"
+    }
 }
 
 class Groups: Object {
     @objc dynamic var id: Int = 0
     @objc dynamic var name: String = ""
     @objc dynamic var photo: String = ""
+    
+    override class func primaryKey() -> String? {
+        return "id"
+    }
 }
 
 class Photo: Object {
