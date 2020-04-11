@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import RealmSwift
 
 class UserGroupController: UITableViewController {
     @IBOutlet weak var searchBar: UISearchBar!
@@ -25,8 +26,17 @@ class UserGroupController: UITableViewController {
         tableView.keyboardDismissMode = .onDrag
         
         getDataService.loadGroups(additionalParameters: ["extended": 1]) { (groups) in
-            self.displayData = groups
-            self.userGroup = groups
+            
+            do {
+                let realm = try Realm()
+                let groupRealm = realm.objects(Groups.self)
+                self.displayData = Array(groupRealm)
+                self.userGroup = self.displayData
+                
+            } catch {
+                print(error)
+            }
+            
             self.tableView.reloadData()
         }
 
