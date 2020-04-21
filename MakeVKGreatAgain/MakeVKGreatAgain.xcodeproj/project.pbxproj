@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DF129760243070AE00693AE4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DF12975F243070AE00693AE4 /* Kingfisher */; };
-		DF20E98B242B3483001E9D5E /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DF20E98A242B3483001E9D5E /* RealmSwift */; };
+		6267FC9A90017A17444DBEF1 /* Pods_MakeVKGreatAgain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE85E27B60D30D1EB53D0758 /* Pods_MakeVKGreatAgain.framework */; };
+		DF129760243070AE00693AE4 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = DF12975F243070AE00693AE4 /* SwiftPackageProductDependency */; };
+		DF20E98B242B3483001E9D5E /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = DF20E98A242B3483001E9D5E /* SwiftPackageProductDependency */; };
 		DF20E98E242B3AC5001E9D5E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF20E98D242B3AC5001E9D5E /* WebKit.framework */; };
 		DF3E406523FD15E0003AB882 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF3E406423FD15E0003AB882 /* NewsCell.xib */; };
 		DF3E406723FD1643003AB882 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3E406623FD1643003AB882 /* NewsCell.swift */; };
@@ -20,13 +21,13 @@
 		DFA5E7DB23F066010032D2BF /* SearchGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA5E7DA23F066010032D2BF /* SearchGroupController.swift */; };
 		DFA5E7DD23F0663A0032D2BF /* FriendsImagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA5E7DC23F0663A0032D2BF /* FriendsImagesController.swift */; };
 		DFA841E123F6814B00247396 /* FooterFriendImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA841E023F6814B00247396 /* FooterFriendImagesView.swift */; };
-		DFA93343241F5BD400DBE6A4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DFA93342241F5BD400DBE6A4 /* Alamofire */; };
+		DFA93343241F5BD400DBE6A4 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = DFA93342241F5BD400DBE6A4 /* SwiftPackageProductDependency */; };
 		DFA93347241F935A00DBE6A4 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA93346241F935A00DBE6A4 /* LoginController.swift */; };
 		DFA9334B241FAC8700DBE6A4 /* GroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFA9334A241FAC8700DBE6A4 /* GroupCell.xib */; };
 		DFA9334D241FAE4400DBE6A4 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA9334C241FAE4400DBE6A4 /* GroupCell.swift */; };
 		DFA9334F241FC47E00DBE6A4 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFA9334E241FC47E00DBE6A4 /* UserCell.xib */; };
 		DFA93351241FC4BA00DBE6A4 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA93350241FC4BA00DBE6A4 /* UserCell.swift */; };
-		DFAB37AC2429DFA500740C51 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = DFAB37AB2429DFA500740C51 /* SwiftyJSON */; };
+		DFAB37AC2429DFA500740C51 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = DFAB37AB2429DFA500740C51 /* SwiftPackageProductDependency */; };
 		DFAB37AE2429E6B600740C51 /* GetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAB37AD2429E6B600740C51 /* GetData.swift */; };
 		DFAC200123F1429B00A1891A /* FriendImagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAC200023F1429B00A1891A /* FriendImagesCell.swift */; };
 		DFAD080E23F0164A0057964B /* FriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD080D23F0164A0057964B /* FriendsController.swift */; };
@@ -46,10 +47,14 @@
 		DFB4D23823EDA61F0025359F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFB4D23623EDA61F0025359F /* LaunchScreen.storyboard */; };
 		DFB50F2523F535490086CAA2 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB50F2423F535490086CAA2 /* LikeButton.swift */; };
 		DFB50F2723F53F2B0086CAA2 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB50F2623F53F2B0086CAA2 /* ShadowView.swift */; };
+		DFBF1DB3243C90DF000A1714 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DFBF1DB2243C90DF000A1714 /* GoogleService-Info.plist */; };
 		DFE5E1972418CFE60064BB6A /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE5E1962418CFE60064BB6A /* Session.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23FE251101A3F22D5CC5A0B9 /* Pods-MakeVKGreatAgain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeVKGreatAgain.release.xcconfig"; path = "Target Support Files/Pods-MakeVKGreatAgain/Pods-MakeVKGreatAgain.release.xcconfig"; sourceTree = "<group>"; };
+		AD398B8C3DABACF96D2EE88F /* Pods-MakeVKGreatAgain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeVKGreatAgain.debug.xcconfig"; path = "Target Support Files/Pods-MakeVKGreatAgain/Pods-MakeVKGreatAgain.debug.xcconfig"; sourceTree = "<group>"; };
+		CE85E27B60D30D1EB53D0758 /* Pods_MakeVKGreatAgain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MakeVKGreatAgain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF20E98D242B3AC5001E9D5E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		DF3E406423FD15E0003AB882 /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		DF3E406623FD1643003AB882 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
@@ -87,6 +92,7 @@
 		DFB4D23923EDA61F0025359F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DFB50F2423F535490086CAA2 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		DFB50F2623F53F2B0086CAA2 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		DFBF1DB2243C90DF000A1714 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DFE5E1962418CFE60064BB6A /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,21 +101,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF20E98B242B3483001E9D5E /* RealmSwift in Frameworks */,
-				DFAB37AC2429DFA500740C51 /* SwiftyJSON in Frameworks */,
+				DF20E98B242B3483001E9D5E /* BuildFile in Frameworks */,
+				DFAB37AC2429DFA500740C51 /* BuildFile in Frameworks */,
 				DF20E98E242B3AC5001E9D5E /* WebKit.framework in Frameworks */,
-				DFA93343241F5BD400DBE6A4 /* Alamofire in Frameworks */,
-				DF129760243070AE00693AE4 /* Kingfisher in Frameworks */,
+				DFA93343241F5BD400DBE6A4 /* BuildFile in Frameworks */,
+				DF129760243070AE00693AE4 /* BuildFile in Frameworks */,
+				6267FC9A90017A17444DBEF1 /* Pods_MakeVKGreatAgain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		805989BDB64BC2EE37ABD415 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AD398B8C3DABACF96D2EE88F /* Pods-MakeVKGreatAgain.debug.xcconfig */,
+				23FE251101A3F22D5CC5A0B9 /* Pods-MakeVKGreatAgain.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		DF20E98C242B3AC5001E9D5E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				DF20E98D242B3AC5001E9D5E /* WebKit.framework */,
+				CE85E27B60D30D1EB53D0758 /* Pods_MakeVKGreatAgain.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -199,6 +217,7 @@
 				DFB4D22A23EDA61D0025359F /* MakeVKGreatAgain */,
 				DFB4D22923EDA61D0025359F /* Products */,
 				DF20E98C242B3AC5001E9D5E /* Frameworks */,
+				805989BDB64BC2EE37ABD415 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -223,6 +242,7 @@
 				DF3E406823FD1656003AB882 /* CustomCellXib */,
 				DFAD080B23F0127A0057964B /* Assets */,
 				DFB4D23923EDA61F0025359F /* Info.plist */,
+				DFBF1DB2243C90DF000A1714 /* GoogleService-Info.plist */,
 				DFB4D22B23EDA61D0025359F /* AppDelegate.swift */,
 				DFB4D22D23EDA61D0025359F /* SceneDelegate.swift */,
 			);
@@ -253,9 +273,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DFB4D23C23EDA61F0025359F /* Build configuration list for PBXNativeTarget "MakeVKGreatAgain" */;
 			buildPhases = (
+				D9FA3C1E9ADD9022CAF86611 /* [CP] Check Pods Manifest.lock */,
 				DFB4D22423EDA61D0025359F /* Sources */,
 				DFB4D22523EDA61D0025359F /* Frameworks */,
 				DFB4D22623EDA61D0025359F /* Resources */,
+				78B6EB37DDD86382A9DDEFAC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -263,10 +285,10 @@
 			);
 			name = MakeVKGreatAgain;
 			packageProductDependencies = (
-				DFA93342241F5BD400DBE6A4 /* Alamofire */,
-				DFAB37AB2429DFA500740C51 /* SwiftyJSON */,
-				DF20E98A242B3483001E9D5E /* RealmSwift */,
-				DF12975F243070AE00693AE4 /* Kingfisher */,
+				DFA93342241F5BD400DBE6A4 /* SwiftPackageProductDependency */,
+				DFAB37AB2429DFA500740C51 /* SwiftPackageProductDependency */,
+				DF20E98A242B3483001E9D5E /* SwiftPackageProductDependency */,
+				DF12975F243070AE00693AE4 /* SwiftPackageProductDependency */,
 			);
 			productName = MakeVKGreatAgain;
 			productReference = DFB4D22823EDA61D0025359F /* MakeVKGreatAgain.app */;
@@ -297,10 +319,10 @@
 			);
 			mainGroup = DFB4D21F23EDA61D0025359F;
 			packageReferences = (
-				DFA93341241F5BD400DBE6A4 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				DFAB37AA2429DFA500740C51 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
-				DF20E989242B3483001E9D5E /* XCRemoteSwiftPackageReference "realm-cocoa" */,
-				DF12975E243070AE00693AE4 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				DFA93341241F5BD400DBE6A4 /* RemoteSwiftPackageReference */,
+				DFAB37AA2429DFA500740C51 /* RemoteSwiftPackageReference */,
+				DF20E989242B3483001E9D5E /* RemoteSwiftPackageReference */,
+				DF12975E243070AE00693AE4 /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = DFB4D22923EDA61D0025359F /* Products */;
 			projectDirPath = "";
@@ -322,10 +344,53 @@
 				DF3E406523FD15E0003AB882 /* NewsCell.xib in Resources */,
 				DFA9334B241FAC8700DBE6A4 /* GroupCell.xib in Resources */,
 				DFB4D23323EDA61D0025359F /* Main.storyboard in Resources */,
+				DFBF1DB3243C90DF000A1714 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		78B6EB37DDD86382A9DDEFAC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MakeVKGreatAgain/Pods-MakeVKGreatAgain-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MakeVKGreatAgain/Pods-MakeVKGreatAgain-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MakeVKGreatAgain/Pods-MakeVKGreatAgain-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9FA3C1E9ADD9022CAF86611 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MakeVKGreatAgain-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DFB4D22423EDA61D0025359F /* Sources */ = {
@@ -502,6 +567,7 @@
 		};
 		DFB4D23D23EDA61F0025359F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD398B8C3DABACF96D2EE88F /* Pods-MakeVKGreatAgain.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -520,6 +586,7 @@
 		};
 		DFB4D23E23EDA61F0025359F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23FE251101A3F22D5CC5A0B9 /* Pods-MakeVKGreatAgain.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -560,7 +627,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		DF12975E243070AE00693AE4 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		DF12975E243070AE00693AE4 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
 			requirement = {
@@ -568,7 +635,7 @@
 				minimumVersion = 5.13.2;
 			};
 		};
-		DF20E989242B3483001E9D5E /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+		DF20E989242B3483001E9D5E /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-cocoa";
 			requirement = {
@@ -576,7 +643,7 @@
 				minimumVersion = 4.3.2;
 			};
 		};
-		DFA93341241F5BD400DBE6A4 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		DFA93341241F5BD400DBE6A4 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
 			requirement = {
@@ -584,7 +651,7 @@
 				minimumVersion = 5.0.4;
 			};
 		};
-		DFAB37AA2429DFA500740C51 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+		DFAB37AA2429DFA500740C51 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
 			requirement = {
@@ -595,24 +662,24 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		DF12975F243070AE00693AE4 /* Kingfisher */ = {
+		DF12975F243070AE00693AE4 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DF12975E243070AE00693AE4 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = DF12975E243070AE00693AE4 /* RemoteSwiftPackageReference */;
 			productName = Kingfisher;
 		};
-		DF20E98A242B3483001E9D5E /* RealmSwift */ = {
+		DF20E98A242B3483001E9D5E /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DF20E989242B3483001E9D5E /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			package = DF20E989242B3483001E9D5E /* RemoteSwiftPackageReference */;
 			productName = RealmSwift;
 		};
-		DFA93342241F5BD400DBE6A4 /* Alamofire */ = {
+		DFA93342241F5BD400DBE6A4 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DFA93341241F5BD400DBE6A4 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = DFA93341241F5BD400DBE6A4 /* RemoteSwiftPackageReference */;
 			productName = Alamofire;
 		};
-		DFAB37AB2429DFA500740C51 /* SwiftyJSON */ = {
+		DFAB37AB2429DFA500740C51 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DFAB37AA2429DFA500740C51 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			package = DFAB37AA2429DFA500740C51 /* RemoteSwiftPackageReference */;
 			productName = SwiftyJSON;
 		};
 /* End XCSwiftPackageProductDependency section */
