@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>697880333206-g3k07eibkemsabao05l2blcjfp9iikhh.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.697880333206-g3k07eibkemsabao05l2blcjfp9iikhh</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDOUX0Kq1EmdXxXx3BkDljSDKL07Lh2tIU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>697880333206</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>n.perezhogin.MakeVKGreatAgain</string>
+	<key>PROJECT_ID</key>
+	<string>makevkgreatagain-bab9f</string>
+	<key>STORAGE_BUCKET</key>
+	<string>makevkgreatagain-bab9f.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:697880333206:ios:ba081cb27c54c72b67abb7</string>
+	<key>DATABASE_URL</key>
+	<string>https://makevkgreatagain-bab9f.firebaseio.com</string>
+</dict>
+</plist>

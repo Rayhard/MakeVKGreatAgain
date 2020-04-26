@@ -14,6 +14,6 @@ var userGroupArray = [Group(name: "GeekBrains", photo: UIImage(named: "GeekBrain
 
     // MARK: - Новости
 let newsArray = [News(author: userGroupArray[0], contentText: "Hello world", contentImage: nil),
-                 News(author: userGroupArray[0], contentText: "It's-a me, Mario!", contentImage: UIImage(named: "GeekBrains")),
+                 News(author: userGroupArray[0], contentText: "It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!It's-a me, Mario!", contentImage: UIImage(named: "GeekBrains")),
                  News(author: userGroupArray[1], contentText: "Маленькая фотка", contentImage: UIImage(named: "Petya"))
 ]
